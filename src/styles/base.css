@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components; */
+
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 * {
     margin: 0;
@@ -22,7 +26,7 @@
 }
 
 .custom-container {
-    margin: 0 128px;
+    margin: 0px 128px;
     max-width: 1920px;
 }
 
@@ -35,7 +39,13 @@ body {
     gap: 49px;
 }
 
-.nav a {
+li{
+    list-style-type: none;
+}
+
+.navbar a,
+a {
+    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     line-height: 100%;
@@ -43,11 +53,11 @@ body {
     color: var(--darkBlueColor);
 }
 
-.nav a:hover {
+.navbar a:hover {
     color: var(--lighBlueColor);
 }
 
-.nav a.active {
+.navbar a.active {
     color: var(--lighBlueColor);
 }
 
@@ -58,6 +68,14 @@ h2 {
     line-height: 100%;
     letter-spacing: 0%;
     color: var(--grayText);
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--lightBlack);
 }
 
 p {
