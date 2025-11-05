@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --darkBlueColor: #122649;
+    --lighBlueColor: #3C73AD;
+    --red: #F7685B;
+    --green: #2ED47A;
+    --black: #192A3E;
+    --tableBlack: #323C47;
+    --lightBlack: #4F4F4F;
+    --darkBlueText: #334D6E;
+    --gray: #90A0B7;
+    --grayText: #333333;
+    --lightGray: #C2CFE0;
+    --white: #FFFFFF;
+    --font-family: "Nunito Sans", sans-serif;
+}
+
+.custom-container {
+    margin: 0 128px;
+    max-width: 1920px;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+.nav-links {
+    display: flex;
+    gap: 49px;
+}
+
+.nav a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: var(--darkBlueColor);
+}
+
+.nav a:hover {
+    color: var(--lighBlueColor);
+}
+
+.nav a.active {
+    color: var(--lighBlueColor);
+}
+
+h1,
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--grayText);
+}
+
+p {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--lightBlack);
+}
+
+.small-p {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 100%;
+    color: var(--grayText);
+}
+
+.subtitle-p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--lightBlack);
+}
+
+.card-p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--lightBlack);
+}
+
+.news-card-subtitle {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 100%;
+    color: var(--lightBlack);
+}
+
+.news-card-a {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 100%;
+    text-decoration: none;
+    color: var(--lighBlueColor);
+}
