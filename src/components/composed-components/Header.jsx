@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from '../../assets/images/Logo.png'
+import '../../styles/base.css'
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="bg-transparent text-white fixed w-full z-50 shadow-md header">
+        <header className={`fixed w-full z-50 transition-all duration-300 shadow-md header ${isScrolled ? "header--scrolled" : "header--default"
+            }`}>
             <nav className="  flex items-center  desktop-navbar">
                 {/* Logo */}
 

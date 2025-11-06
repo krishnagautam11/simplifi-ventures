@@ -1,4 +1,3 @@
-import { InfoCards } from '../components/composed-components/InfoCards'
 import infoCard1 from '../assets/images/InfoCard_img1.png';
 import infoCard2 from '../assets/images/InfoCard_img2.png';
 import infoCard3 from '../assets/images/InfoCard_img3.png';
@@ -10,8 +9,6 @@ import marqueeImg2 from '../assets/images/bharatpe.png';
 import marqueeImg3 from '../assets/images/Pharmeasy.png';
 import marqueeImg4 from '../assets/images/mbachaiwala.jpg';
 import marqueeImg5 from '../assets/images/zepto.png';
-import { InvestedProjects } from '../components/composed-components/InvestedProjects';
-import { CTA } from '../components/composed-components/CTA';
 
 
 
@@ -45,28 +42,3 @@ const ctaContent = [{ 'title': 'Invest in the Future of Finance', 'description':
     button: "Contact Us"
 }
 ]
-
-export const Home = () => {
-    return (
-        <main>
-
-            <div >
-                <InfoCards img={infoCard1} h2={InfoCardHeading[0]} p={InfoCardDescrption[0]} className="card-one" />
-                <InfoCards img={infoCard2} h2={InfoCardHeading[1]} p={InfoCardDescrption[1]} className="card-two" />
-                <InfoCards img={infoCard3} h2={InfoCardHeading[2]} p={InfoCardDescrption[2]} className="card-third" />
-                <InvestedProjects marqueeImages={investedCompanies} />
-                <InfoCards img4={infoCard4} h2={InfoCardHeading[3]} p={InfoCardDescrption[3]} className="card-fourth" />
-
-                <CTA content={ctaContent[0]} className='investorBanner' />
-                <InfoCards img={infoCard5} h2={InfoCardHeading[4]} p={InfoCardDescrption[4]} className="card-fifth" />
-                <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' />
-                <InfoCards img={infoCard6} h2={InfoCardHeading[5]} p={InfoCardDescrption[5]} className="card-sixth" />
-
-            </div>
-
-            <div>
-
-            </div>
-        </main>
-    )
-}

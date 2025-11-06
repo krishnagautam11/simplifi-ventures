@@ -22,6 +22,8 @@
     --grayText: #333333;
     --lightGray: #C2CFE0;
     --white: #FFFFFF;
+    --bannerGray: rgba(255, 255, 255, 0.15);
+    --bannerShadow: rgba(255, 255, 255, 0.3);
     --font-family: "Nunito Sans", sans-serif;
 }
 
@@ -120,4 +122,35 @@ p {
     line-height: 100%;
     text-decoration: none;
     color: var(--lighBlueColor);
+}
+
+
+.primary-btn,
+.secondary-btn {
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--lightGray);
+    color: var(--black);
+}
+
+.primary-btn:hover {
+    background-color:var(--gray);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #000;
+    background-color: #fff;
+}
+
+.secondary-btn:hover {
+    opacity: 0.9;
 }
