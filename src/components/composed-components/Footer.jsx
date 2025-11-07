@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/images/Logo.png'
 
 export const Footer = () => {
@@ -12,27 +13,27 @@ export const Footer = () => {
                         <div className="footer-links">
                             <div className="footer-link">
                                 <ul>
-                                    <li><a href="">Home</a></li>
-                                    <li><a href="">Team</a></li>
-                                    <li><a href="">Studio</a></li>
-                                    <li><a href="">Resources</a></li>
+                                    <li><Link to="/">Home</Link></li>
+                                    <li><Link to="/team">Team</Link></li>
+                                    <li><Link to="/studio">Studio</Link></li>
+                                    <li><Link to="/resources">Resources</Link></li>
                                 </ul>
                             </div>
 
                             <div className="footer-link">
                                 <ul>
-                                    <li><a href="">Career</a></li>
-                                    <li><a href="">Join Us</a></li>
-                                    <li><a href="">Contact Us</a></li>
+                                    <li><Link to="/career">Career</Link></li>
+                                    <li><Link to="/join">Join Us</Link></li>
+                                    <li><Link to="/contact">Contact Us</Link></li>
                                 </ul>
                             </div>
 
                             <div className="footer-link">
                                 <ul>
-                                    <li><a href="">facebook</a></li>
-                                    <li><a href="">Instagram</a></li>
-                                    <li><a href="">X</a></li>
-                                    <li><a href="">LinkedIn</a></li>
+                                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                                    <li><a href="https://x.com/">X</a></li>
+                                    <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
                                 </ul>
 
                             </div>

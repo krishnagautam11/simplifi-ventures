@@ -5,11 +5,12 @@ import { RadioField } from "../atomic-components/RadioField";
 import {MessageField} from '../atomic-components/MessageField'
 
 export const Form = () => {
-    const [firstName, setfirstName] = useState('');
-    const [lastName, setlastName] = useState('');
+    const [companyName, setCompanyName] = useState('');
+    const [companySize, setCompanySize] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-     const [message, setMessage] = useState('');
+    const [companyWebsite, setCompanyWebsite] = useState('');
+    const [industry, setIndustry] = useState('');
+     const [productDescription, setProductDescription] = useState('');
     const [phone, setPhone] = useState('');
     const [selectedValue, setSelectedValue] = useState('General Inquiry');
     const [radioValue, setRadioValue] = useState('');

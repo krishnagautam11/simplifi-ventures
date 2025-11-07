@@ -28,9 +28,9 @@ export const Header = () => {
                     <img src={Logo} alt="" />
                 </Link>
                 <div className="hidden md:flex items-center space-x-6 gap-4">
-                    <Link to="/" className="hover:text-gray-300">Team</Link>
-                    <Link to="/movies" className="hover:text-gray-300">Studio</Link>
-                    <Link to="/tv" className="hover:text-gray-300">Resources</Link>
+                    <Link to="/team" className="hover:text-gray-300">Team</Link>
+                    <Link to="/studio" className="hover:text-gray-300">Studio</Link>
+                    <Link to="/resources" className="hover:text-gray-300">Resources</Link>
                 </div>
 
                 {/* Mobile Hamburger */}
