@@ -57,7 +57,7 @@ export const Studio = () => {
 
 
     return (
-        <main>
+        <main className='custom-container-main'>
 
             <div >
                 <InfoCards img={infoCard7} h2={InfoCardHeading[4]} className="card-one" />

@@ -32,13 +32,13 @@ export const Resources = () => {
 
 
     return (
-        <>
+        <main className='custom-container-main'>
             <InfoCards img={infoCard10} h2={InfoCardHeading[8]} className="card-one" />
 
             <SwiperCarousel />
 
             <InfoCards img={infoCardJoinUs} h2={InfoCardHeading[9]} p={InfoCardDescrption[7]} className="card-fifth" />
             <InfoCards img={infoCardFooter} h2={InfoCardHeading[10]} p={InfoCardDescrption[5]} className="card-sixth" />
-        </>
+        </main>
     )
 }

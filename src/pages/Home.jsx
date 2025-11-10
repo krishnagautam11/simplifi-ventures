@@ -12,6 +12,7 @@ import marqueeImg4 from '../assets/images/mbachaiwala.jpg';
 import marqueeImg5 from '../assets/images/zepto.png';
 import { InvestedProjects } from '../components/composed-components/InvestedProjects';
 import { CTA } from '../components/composed-components/CTA';
+import { ScrollingAnimation } from '../components/composed-components/ScrollingAnimation';
 
 
 
@@ -47,10 +48,11 @@ const ctaContent = [{ 'title': 'Invest in the Future of Finance', 'description':
 ]
 
 export const Home = () => {
+    ScrollingAnimation(".reveal", 100);
     return (
         <main>
 
-            <div >
+            <div className='custom-container-main'>
                 <InfoCards img={infoCard1} h2={InfoCardHeading[0]} p={InfoCardDescrption[0]} className="card-one" />
                 <InfoCards img={infoCard2} h2={InfoCardHeading[1]} p={InfoCardDescrption[1]} className="card-two" />
                 <InfoCards img={infoCard3} h2={InfoCardHeading[2]} p={InfoCardDescrption[2]} className="card-third" />

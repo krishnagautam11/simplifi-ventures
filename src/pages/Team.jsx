@@ -43,7 +43,7 @@ export const Team = () => {
 
 
     return (
-        <main>
+        <main className='custom-container-main'>
 
             <div >
                 <InfoCards img={infoCard6} h2={InfoCardHeading[4]} p={InfoCardDescrption[4]} className="card-one" />

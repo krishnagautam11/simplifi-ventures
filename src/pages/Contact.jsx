@@ -4,7 +4,7 @@ import { Form } from '../components/composed-components/Form'
 
 export const Contact = () => {
     return (
-        <main>
+        <main className='custom-container-main'>
             <div className="contact-page-wrapper">
                 <div className="contact-title">
                     <h1>Contact Us</h1>
