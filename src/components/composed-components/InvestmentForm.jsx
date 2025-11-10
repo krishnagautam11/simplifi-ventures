@@ -2,6 +2,7 @@ import { useState } from "react";
 import { InputField } from "../atomic-components/InputField";
 import { Dropdown } from "../atomic-components/Dropdown";
 import { MessageField } from "../atomic-components/MessageField";
+import { Button } from "../atomic-components/Button";
 
 export const InvestmentForm = () => {
   const [fullName, setFullName] = useState("");
@@ -13,7 +14,9 @@ export const InvestmentForm = () => {
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Dropdown options
+  const [errors, setErrors] = useState({});
+
+
   const investorTypes = [
     { value: "Individual", label: "Individual" },
     { value: "Company", label: "Company" },
@@ -27,12 +30,21 @@ export const InvestmentForm = () => {
     { value: "₹1Cr+", label: "₹1Cr+" },
   ];
 
-  // Submit handler
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!fullName || !email || !phone || !consent) {
-      alert("Please fill all required fields and accept the consent.");
+    const newErrors = {};
+    if (!fullName) newErrors.fullName = "Full name is required.";
+    if (!email) newErrors.email = "Email is required.";
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
+    if (!phone) newErrors.phone = "Phone number is required.";
+    else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
+    if (!consent) newErrors.consent = "Please accept the consent.";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
       return;
     }
 
@@ -44,7 +56,6 @@ export const InvestmentForm = () => {
     console.log("Message:", message);
     console.log("Consent Given:", consent);
 
-    // Simulate success popup
     setSubmitted(true);
     setFullName("");
     setEmail("");
@@ -55,7 +66,6 @@ export const InvestmentForm = () => {
     setConsent(false);
   };
 
-  // Success message UI
   if (submitted) {
     return (
       <div className="form-success">
@@ -69,34 +79,35 @@ export const InvestmentForm = () => {
   }
 
   return (
-    <div className=" joinus-form">
-      <h2 className="form-heading">Invest in Our Project</h2>
-      <p className="form-subtext">
-        We’re building the future of fintech and startup support. Join us as an
-        investor and grow with us.
-      </p>
-
+    <div className="joinus-form">
       <form onSubmit={handleSubmit} className="form-reusable">
         <InputField
           label="Full Name"
           type="text"
           value={fullName}
           inputValue={(e) => setFullName(e.target.value)}
+           error={errors.fullName}
         />
+        
 
         <InputField
           label="Email"
           type="email"
           value={email}
           inputValue={(e) => setEmail(e.target.value)}
+           error={errors.email}
+          
         />
+       
 
         <InputField
           label="Phone"
           type="tel"
           value={phone}
           inputValue={(e) => setPhone(e.target.value)}
+          error={errors.phone}
         />
+        
 
         <Dropdown
           label="Investor Type"
@@ -129,10 +140,9 @@ export const InvestmentForm = () => {
             I agree to be contacted regarding investment opportunities.
           </label>
         </div>
+        {errors.consent && <p className="error-text">{errors.consent}</p>}
 
-        <button type="submit" className="primary-btn">
-          Submit Interest
-        </button>
+         <Button btnType="submit" className="primary-btn" btnText="Submit"/>
       </form>
     </div>
   );

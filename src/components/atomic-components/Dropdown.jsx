@@ -1,4 +1,4 @@
-export const Dropdown = ({ value, selectValue, optionValue }) => {
+export const Dropdown = ({ value, selectValue, optionValue, error }) => {
     return (
         <>
             <div className="input-fields">
@@ -11,6 +11,7 @@ export const Dropdown = ({ value, selectValue, optionValue }) => {
                     }
 
                 </select>
+                {error && <p className="error-text">{error}</p>}
             </div>
 
         </>

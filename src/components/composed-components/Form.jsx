@@ -1,75 +1,72 @@
 import { useState } from "react";
 import { InputField } from "../atomic-components/InputField";
-import { Dropdown } from "../atomic-components/Dropdown";
-import { RadioField } from "../atomic-components/RadioField";
-import {MessageField} from '../atomic-components/MessageField'
+import { MessageField } from '../atomic-components/MessageField';
+import { Button } from "../atomic-components/Button";
 
 export const Form = () => {
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-     const [message, setMessage] = useState('');
+    const [message, setMessage] = useState('');
     const [phone, setPhone] = useState('');
-    const [selectedValue, setSelectedValue] = useState('General Inquiry');
-    const [radioValue, setRadioValue] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+    const [errors, setErrors] = useState({});
 
-    const fruits = [
-        { value: 'General Inquiry', label: 'General Inquiry' },
-        { value: 'banana', label: 'Banana' },
-        { value: 'orange', label: 'Orange' },
-        { value: 'kiwi', label: 'kiwi' }
-    ];
-
-    const radios = [
-        { value: 'male', label: 'male' },
-        { value: 'female', label: 'female' }
-    ]
-
-
-
-
-    function handleSubmit(e) {
-
+    const handleSubmit = (e) => {
         e.preventDefault();
-        let isValid = true;
 
-        if (firstName == '') {
+        const newErrors = {};
+        if (!firstName) newErrors.firstName = "First name is required.";
+        if (!lastName) newErrors.lastName = "Last name is required.";
+        if (!email) newErrors.email = "Email is required.";
+        else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
+        if (!phone) newErrors.phone = "Phone number is required.";
+        else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
 
-            isValid = false;
 
-        }
-        if (lastName == '') {
+        setErrors(newErrors);
 
-            isValid = false;
-
-        }
-        if (email == '') {
-
-            isValid = false;
-
+        if (Object.keys(newErrors).length > 0) {
+            return;
         }
 
-        if (isValid) {
-            console.log("first name is :", firstName)
-            console.log("last name is :", lastName)
-            console.log("email is :", email)
-            console.log("password is :", password)
-            console.log("phone is :", phone)
-            console.log("dropdown value is :", selectedValue)
-            console.log("radio value is :", radioValue)
-        }
+        console.log("First Name:", firstName);
+        console.log("Last Name:", lastName);
+        console.log("Email:", email);
+        console.log("Phone:", phone);
+
+        console.log("Message:", message);
+
+        setSubmitted(true);
+        setfirstName("");
+        setlastName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+    };
+
+
+    if (submitted) {
+        return (
+            <div className="form-success">
+                <h3>Thank You for Showing Interest!</h3>
+                <p>Our team will get in touch with you soon.</p>
+                <button className="primary-btn" onClick={() => setSubmitted(false)}>
+                    Back to Form
+                </button>
+            </div>
+        );
     }
-
 
     return (
         <>
-            <div className="form-resuable">
+            <div className="form-reusable">
                 <InputField
                     label='First Name'
                     type='text'
                     value={firstName}
                     inputValue={(e) => setfirstName(e.target.value)}
+                    error={errors.firstName}
                 />
 
                 <InputField
@@ -77,6 +74,7 @@ export const Form = () => {
                     type='text'
                     value={lastName}
                     inputValue={(e) => setlastName(e.target.value)}
+                    error={errors.lastName}
                 />
 
                 <InputField
@@ -84,6 +82,7 @@ export const Form = () => {
                     type='email'
                     value={email}
                     inputValue={(e) => setEmail(e.target.value)}
+                    error={errors.email}
                 />
 
                 <InputField
@@ -91,6 +90,7 @@ export const Form = () => {
                     type='number'
                     value={phone}
                     inputValue={(e) => setPhone(e.target.value)}
+                    error={errors.phone}
                 />
 
                 <MessageField
@@ -100,31 +100,8 @@ export const Form = () => {
                     inputValue={(e) => setMessage(e.target.value)}
                 />
 
-                {/* <InputField
-                    label='Password'
-                    type='password'
-                    value={password}
-                    inputValue={(e) => setPassword(e.target.value)}
-                /> */}
-
-                {/* <Dropdown
-                    label='dropdown'
-                    optionValue={fruits}
-                    value={selectedValue}
-                    selectValue={(e) => setSelectedValue(e.target.value)}
-                /> */}
-                {/* <RadioField
-                    label='Radio'
-                    name='gender'
-                    type='radio'
-                    value={radioValue}
-                    radioOption={radios}
-                    radioSelectValue={(e) => setRadioValue(e.target.value)}
-                /> */}
-
-
-
-                <button type="submit" className="primary-btn" onClick={handleSubmit}>submit</button>
+                <Button btnType="submit" className="primary-btn" btnText="Submit" submitForm={handleSubmit} />
+                {/* <button type="submit" className="primary-btn" onClick={handleSubmit}>submit</button> */}
             </div>
         </>
     )

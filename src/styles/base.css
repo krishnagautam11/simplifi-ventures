@@ -37,6 +37,10 @@ body {
     font-family: var(--font-family);
 }
 
+main{
+    overflow: hidden;
+}
+
 .nav-links {
     display: flex;
     gap: 49px;
@@ -148,15 +152,15 @@ p {
 
 .secondary-btn {
     background-color: transparent;
-    color: #000;
-    background-color: #fff;
+    color: var(--black);
+    background-color: var(--white);
 }
 
 .secondary-btn:hover {
     opacity: 0.9;
 }
 
-input, select, textarea {
+input, select, textarea, .drop-area {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid var(--lighBlueColor);

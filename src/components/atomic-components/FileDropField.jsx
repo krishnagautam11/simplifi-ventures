@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 export const FileDropField = ({ onFileSelect, label }) => {
   const [dragOver, setDragOver] = useState(false);
   const [fileName, setFileName] = useState("");
+  const [errors, setErrors] = useState({});
   const inputRef = useRef();
 
   const handleDragOver = (e) => {
@@ -28,11 +29,11 @@ export const FileDropField = ({ onFileSelect, label }) => {
     if (!file) return;
     const allowed = ["application/pdf", "text/plain"];
     if (!allowed.includes(file.type)) {
-      alert("Only PDF and TXT files are allowed.");
+      setErrors("Only PDF and TXT files are allowed.");
       return;
     }
     if (file.size > 5 * 1024 * 1024) {
-      alert("File size must be less than 5 MB.");
+      setErrors("File size must be less than 5 MB.");
       return;
     }
     setFileName(file.name);
