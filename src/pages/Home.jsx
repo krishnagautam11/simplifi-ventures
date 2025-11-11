@@ -5,11 +5,12 @@ import infoCard3 from '../assets/images/InfoCard_img3.png';
 import infoCard4 from '../assets/images/solutions.png';
 import infoCard5 from '../assets/images/InfoCard_img4.png';
 import infoCard6 from '../assets/images/InfoCard_img5.png';
-import marqueeImg1 from '../assets/images/paytm.png';
-import marqueeImg2 from '../assets/images/bharatpe.png';
-import marqueeImg3 from '../assets/images/Pharmeasy.png';
-import marqueeImg4 from '../assets/images/mbachaiwala.jpg';
-import marqueeImg5 from '../assets/images/zepto.png';
+
+import marqueeImg1 from '../assets/images/bharatpe.png';
+import marqueeImg2 from '../assets/images/Pharmeasy.png';
+import marqueeImg3 from '../assets/images/paytm1.png';
+import marqueeImg4 from '../assets/images/zepto.png';
+import marqueeImg5 from '../assets/images/razorPay.png';
 import { InvestedProjects } from '../components/composed-components/InvestedProjects';
 import { CTA } from '../components/composed-components/CTA';
 import { ScrollingAnimation } from '../components/composed-components/ScrollingAnimation';
@@ -36,7 +37,13 @@ const investedCompanies = [{ id: 1, src: marqueeImg1 },
 { id: 2, src: marqueeImg2 },
 { id: 3, src: marqueeImg3 },
 { id: 4, src: marqueeImg4 },
-{ id: 5, src: marqueeImg5 }
+{ id: 5, src: marqueeImg5 },
+{ id: 6, src: marqueeImg1 },
+{ id: 7, src: marqueeImg2 },
+{ id: 8, src: marqueeImg3 },
+{ id: 9, src: marqueeImg4 },
+{ id: 10, src: marqueeImg5 },
+
 ]
 
 const ctaContent = [{ 'title': 'Invest in the Future of Finance', 'description': 'Empower fintech startups redefining the global financial landscape.', 'button': 'Join Us' },
@@ -60,8 +67,8 @@ export const Home = () => {
                 <InfoCards img4={infoCard4} h2={InfoCardHeading[3]} p={InfoCardDescrption[3]} className="card-fourth" />
 
                 <CTA content={ctaContent[0]} className='investorBanner' />
-                <InfoCards img={infoCard5} h2={InfoCardHeading[4]} p={InfoCardDescrption[4]} className="card-fifth" />
-                <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' />
+                <InfoCards img={infoCard5} h2={InfoCardHeading[4]} p={InfoCardDescrption[4]} className="card-fifth " />
+                {/* <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' /> */}
                 <InfoCards img={infoCard6} h2={InfoCardHeading[5]} p={InfoCardDescrption[5]} className="card-sixth" />
 
             </div>

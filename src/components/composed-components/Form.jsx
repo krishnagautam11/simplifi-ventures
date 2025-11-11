@@ -64,6 +64,7 @@ export const Form = () => {
                 <InputField
                     label='First Name'
                     type='text'
+                    placeholderText='Enter First Name'
                     value={firstName}
                     inputValue={(e) => setfirstName(e.target.value)}
                     error={errors.firstName}
@@ -72,6 +73,7 @@ export const Form = () => {
                 <InputField
                     label='Last Name'
                     type='text'
+                    placeholderText='Enter Last Name'
                     value={lastName}
                     inputValue={(e) => setlastName(e.target.value)}
                     error={errors.lastName}
@@ -80,6 +82,7 @@ export const Form = () => {
                 <InputField
                     label='Email'
                     type='email'
+                    placeholderText='Enter Email'
                     value={email}
                     inputValue={(e) => setEmail(e.target.value)}
                     error={errors.email}
@@ -87,21 +90,30 @@ export const Form = () => {
 
                 <InputField
                     label='Phone'
-                    type='number'
+                    type='tel'
+                    placeholderText='Enter Phone Number'
                     value={phone}
-                    inputValue={(e) => setPhone(e.target.value)}
+                    inputValue={(e) => {
+                        const onlyNums = e.target.value.replace(/\D/g, '').slice(0, 10);
+                        setPhone(onlyNums);
+                    }}
+
                     error={errors.phone}
                 />
 
                 <MessageField
                     label='Message'
                     type='text'
+                    enterMessage='Enter Message'
                     value={message}
                     inputValue={(e) => setMessage(e.target.value)}
                 />
 
-                <Button btnType="submit" className="primary-btn" btnText="Submit" submitForm={handleSubmit} />
+
                 {/* <button type="submit" className="primary-btn" onClick={handleSubmit}>submit</button> */}
+            </div>
+            <div className="form-btn">
+                <Button btnType="submit" className="primary-btn" btnText="Submit" submitForm={handleSubmit} />
             </div>
         </>
     )

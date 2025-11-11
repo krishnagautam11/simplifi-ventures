@@ -15,7 +15,7 @@ export const TeamShowing = () => {
       name: 'Ori Sasson',
       role: 'Partner',
       image: avatar1,
-      description: 'We love ideas. We spend our time thinking about problems and how we can solve them...'
+      description: 'We love ideas. We spend our time thinking about problems and how we can solve them, so we’d love to hear from you. If you’re interested in fintech innovation and want to talk about it with us, get in touch!'
     },
     {
       name: 'Abrar Hussain',

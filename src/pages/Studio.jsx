@@ -59,20 +59,20 @@ export const Studio = () => {
     return (
         <main className='custom-container-main'>
 
-            <div >
+            <div className='studio-page-wrapper'>
                 <InfoCards img={infoCard7} h2={InfoCardHeading[4]} className="card-one" />
                 <InfoCards img={infoCard2} h2={InfoCardHeading[5]} p={InfoCardDescrption[4]} className="card-two" />
                 <InfoCards img={infoCard8} h2={InfoCardHeading[6]} p={InfoCardDescrption[5]} className="card-third" />
 
-                <InfoCards img={infoCard9} h2={InfoCardHeading[7]} p={InfoCardDescrption[6]} className="card-fifth" />
+                <InfoCards img={infoCard9} h2={InfoCardHeading[7]} p={InfoCardDescrption[6]} className="card-fifth leapCard" />
 
                 <ApproachCards approachContent={approachSection} />
 
                 <ProcessImg />
 
-                <InfoCards img={infoCardJoinUs} h2={InfoCardHeading[8]} p={InfoCardDescrption[7]} className="card-fifth" />
+                <InfoCards img={infoCardJoinUs} h2={InfoCardHeading[8]} p={InfoCardDescrption[7]} className="card-fifth " />
                 <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' />
-                <InfoCards img={infoCardFooter} h2={InfoCardHeading[5]} p={InfoCardDescrption[5]} className="card-sixth" />
+                <InfoCards img={infoCardFooter} h2={InfoCardHeading[9]} p={InfoCardDescrption[8]} className="card-sixth" />
                 <Accordion />
             </div>
 

@@ -10,12 +10,12 @@ const ProfileDisplay = ({ member }) => {
                 <img
                     src={member.image}
                     alt={member.name}
-                    style={{ width: 100, height: 100, borderRadius: '50%' }}
+                 
                 />
                 <h3 className='small-p'>{member.name}</h3>
                 <p className='subtitle-p' >{member.role}</p>
             </div>
-            <p>{member.description}</p>
+            <p className='member-description'>{member.description}</p>
         </div>
     );
 };
