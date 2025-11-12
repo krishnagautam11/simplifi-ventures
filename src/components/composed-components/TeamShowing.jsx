@@ -53,14 +53,23 @@ export const TeamShowing = () => {
 
   return (
     <div className='team-cards'>
+      {/* Top profile display */}
       <ProfileDisplay member={selectedMember} />
+
+      {/* Filter out the selected member */}
       <div className='flex team-card'>
-        {members.map((m) => (
-          <TeamMember key={m.name} member={m} onSelect={setSelectedMember} />
-        ))}
+        {members
+          .filter((m) => m.name !== selectedMember.name)
+          .map((m) => (
+            <TeamMember
+              key={m.name}
+              member={m}
+              onSelect={setSelectedMember}
+              isActive={m.name === selectedMember.name}
+            />
+          ))}
       </div>
+
     </div>
   );
 };
-
-

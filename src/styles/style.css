@@ -67,8 +67,6 @@
     
 } */
 
-
-
 .mobile-menu {
   background-color: var(--darkBlueText);
   color: var(--white);
@@ -105,7 +103,6 @@
 .mobile-menu a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-
 
 .mobile-nav {
   width: 100%;
@@ -147,7 +144,6 @@
   /* padding-top: 57px; */
 }
 
-
 .info-cards.card-one .solutions-image,
 .info-cards.card-two .solutions-image,
 .info-cards.card-third .solutions-image,
@@ -168,7 +164,6 @@
   max-width: 337px;
   margin: 0 auto;
 }
-
 
 .info-cards img {
   width: 100%;
@@ -223,7 +218,8 @@
   width: 120px;
   height: auto;
 
-  filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(1413%) hue-rotate(198deg) brightness(94%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(1413%)
+    hue-rotate(198deg) brightness(94%) contrast(96%);
 }
 
 /* CTA Banner*/
@@ -267,9 +263,11 @@
 }
 
 .investorBanner {
-  background: linear-gradient(135deg,
-      var(--lighBlueColor),
-      var(--darkBlueColor));
+  background: linear-gradient(
+    135deg,
+    var(--lighBlueColor),
+    var(--darkBlueColor)
+  );
 }
 
 /* .cta-banner {
@@ -279,16 +277,16 @@
 /* background: linear-gradient(135deg, var(--darkBlueText), var(--darkBlueColor)); */
 .contactBanner {
   flex-direction: row-reverse;
-  background: linear-gradient(135deg,
-      var(--darkBlueText),
-      var(--darkBlueColor));
+  background: linear-gradient(
+    135deg,
+    var(--darkBlueText),
+    var(--darkBlueColor)
+  );
 }
 
 .cta-graphic {
   display: none;
 }
-
-
 
 /* Reveal Animation */
 
@@ -319,7 +317,6 @@
     transition: none !important;
   }
 }
-
 
 /* Scroll to Top btn */
 .scroll-to-top {
@@ -372,15 +369,44 @@
 }
 
 .team-card {
+  display: flex;
   gap: 96px;
-  max-width: 1100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  /* align-items: center; */
+  max-width: 700px;
   margin: 0 auto;
 }
 
+/* Smooth transition for bottom team members */
+.team-card {
+  position: relative;
+}
+
+.team-card .team-member {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.4s ease;
+}
+
+.team-card .team-member.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .member-profile {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.4s ease;
   display: flex;
   margin: 139px 195px 70px 128px;
   gap: 64px;
+}
+
+.member-profile.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .member-name {
@@ -596,7 +622,8 @@ iframe {
   text-align: center;
 }
 
-.processExplain-title h1 {}
+.processExplain-title h1 {
+}
 
 .processExplain-content h2 {
   margin-top: 29px;
@@ -705,7 +732,6 @@ iframe {
   top: 0;
   left: 0;
   background-size: cover;
-
 }
 
 .joinUs-title .form-subtext {
@@ -752,7 +778,6 @@ iframe {
   margin-top: 4px;
 }
 
-
 /* Career Page */
 .career-page-wrapper {
   padding-top: 200px;
@@ -769,7 +794,6 @@ iframe {
 }
 
 .career-form .form-reusable {
-
   padding: 40px;
 }
 
@@ -833,7 +857,7 @@ p {
   text-align: center;
 }
 
-@media (min-width:320px) and (max-width:991px) {
+@media (min-width: 320px) and (max-width: 991px) {
   .info-card-img {
     aspect-ratio: 2 / 2;
     object-fit: cover;
@@ -847,23 +871,17 @@ p {
     flex-wrap: wrap;
   }
 
-  .team-card {
+  /* .team-card {
     display: flex;
     gap: 96px;
-
-
     flex-wrap: wrap;
     justify-content: center;
     margin: 20px;
-    /* align-items: center; */
-  }
-
-
-
+    
+  } */
 }
 
 @media (min-width: 425px) {
-  
   .marquee-content {
     animation: marquee 6s linear infinite;
   }
@@ -897,7 +915,6 @@ p {
 }
 
 @media (min-width: 575px) {
-
   .info-cards h1 {
     max-width: 378px;
     margin: 0 auto;
@@ -1025,7 +1042,6 @@ p {
   }
 
   @keyframes pulse {
-
     0%,
     100% {
       transform: translate(-50%, -50%) scale(1);
@@ -1085,7 +1101,6 @@ p {
 } */
 
 @media (min-width: 768px) {
-
   .info-cards h1 {
     max-width: 712px;
     margin: 0 auto;
@@ -1109,7 +1124,6 @@ p {
   /* .header .navlinks a {
     --lighBlueColor
   } */
-
 
   .header--scrolled {
     background-color: var(--white);
@@ -1176,8 +1190,6 @@ p {
     justify-content: space-between;
   }
 
-  
-
   /* Career Page */
   .career-form .form-reusable {
     width: 50%;
@@ -1202,7 +1214,6 @@ p {
 }
 
 @media (min-width: 991px) {
-
   /* Header */
   .desktop-navbar {
     margin: 43px 40px;
@@ -1256,7 +1267,8 @@ p {
     max-width: 358px;
   }
 
-  .info-card-text {}
+  .info-card-text {
+  }
 
   .info-card-text h1 {
     text-align: left;
@@ -1296,7 +1308,6 @@ p {
     /* width: 41%; */
     /* margin-top: -6px; */
     margin-top: -13px;
-
   }
 
   .info-cards.card-two .info-card-text {
@@ -1342,9 +1353,7 @@ p {
     align-items: center;
   }
 
-
   .info-cards.card-fourth .info-card-text {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1377,7 +1386,6 @@ p {
     /* width: 41%; */
     /* margin-top: 39px; */
     margin-top: 29px;
-
   }
 
   .info-cards.card-fifth .info-card-text {
@@ -1431,8 +1439,6 @@ p {
     align-items: center;
   }
 
-
-
   .info-cards.card-sixth .card-p {
     line-height: 139%;
     margin: 20px 0 31px 0;
@@ -1448,10 +1454,25 @@ p {
   }
 
   /* Team Page */
+  .team-card {
+    display: flex;
+    gap: 56px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    /* align-items: center; */
+    max-width: 1000px;
+    margin: 0 auto;
+    /* padding: 0 10px; */
+  }
+
   .member-profile {
     display: flex;
-    margin: 139px 195px 70px 128px;
+    margin: 139px 195px 70px 65px;
     gap: 64px;
+    max-width: 800px;
+
+    /* margin: 139px 195px 70px 128px; */
   }
 
   /* Studio Page */
@@ -1592,7 +1613,6 @@ p {
   }
 
   @keyframes pulse {
-
     0%,
     100% {
       transform: translate(-50%, -50%) scale(1);
@@ -1762,8 +1782,6 @@ p {
     color: var(--white);
   }
 
-
-
   /* animation of transisiton */
   .reveal {
     opacity: 0;
@@ -1783,11 +1801,19 @@ p {
     opacity: 1;
     transform: translateX(0);
   }
+}
 
+@media (min-width: 1024px) {
+  .member-profile {
+    display: flex;
+    padding: 139px 195px 70px 76px;
+    gap: 64px;
+    margin: 0 auto;
+    max-width: 991px;
+  }
 }
 
 @media (min-width: 1200px) {
-
   /* Header */
   .desktop-navbar {
     margin: 43px 128px;
@@ -1814,9 +1840,7 @@ p {
   }
 
   .info-cards.card-one .infoCard-img {
-
     /* position: relative; */
-
   }
 
   .info-cards.card-one .info-card-text {
@@ -1829,13 +1853,10 @@ p {
     align-items: flex-start;
   }
 
-
-
   .info-cards .card-p {
     line-height: 139%;
     margin: 11px 0 31px 0;
   }
-
 
   .info-cards.card-two .info-card-text {
     margin: 0 0 0 96px;
@@ -1848,9 +1869,7 @@ p {
   }
 
   .info-cards.card-two .card-p {
-
     max-width: 337px;
-
   }
 
   .info-cards.card-third .info-card-text {
@@ -1908,7 +1927,6 @@ p {
     text-align: center;
   }
 
-
   .info-card-text {
     margin: 0 !important;
     /* margin: 0 0 0 128px; */
@@ -1922,10 +1940,7 @@ p {
 
   .info-cards .card-p {
     max-width: 286px;
-
   }
-
-
 
   /* Studio Page */
 
@@ -1959,11 +1974,10 @@ p {
     max-width: 400px;
   }
 
-
-
   /* Process Section */
 
-  .process-wrapper {}
+  .process-wrapper {
+  }
 
   .process-content {
     margin: 50px 128px 87px 128px;
@@ -2020,11 +2034,33 @@ p {
     padding: 40px;
   }
 
+  /* Team Page */
+  .team-card {
+    display: flex;
+    gap: 77px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    /* align-items: center; */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 0 10px; */
+  }
+
+      .member-profile {
+        display: flex;
+        padding: 139px 195px 70px 128px;
+        gap: 64px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
   /* Career Page */
-  .career-page-wrapper {}
+  .career-page-wrapper {
+  }
 }
 
-@media (min-width:1240px) {
+@media (min-width: 1240px) {
   .info-cards h1 {
     font-size: 36px;
     line-height: 138%;
@@ -2032,7 +2068,7 @@ p {
   }
 }
 
-@media (min-width:1288px) {
+@media (min-width: 1288px) {
   .desktop-navbar {
     margin: 20px 128px;
     /* margin: 24px 128px; */
@@ -2088,7 +2124,6 @@ p {
     padding-top: 98px;
   }
 
-
   .contact-form {
     padding: 30px;
     /* max-height: 546px; */
@@ -2104,9 +2139,6 @@ p {
     /* outline: 1px solid var(--lightGray); */
   }
 
-
-
-
   .primary-btn {
     border-radius: 7px;
     background-color: var(--lighBlueColor);
@@ -2116,7 +2148,6 @@ p {
 
   .primary-btn:hover {
     background-color: var(--darkBlueColor);
-
   }
 
   label {
@@ -2130,7 +2161,6 @@ p {
     border-radius: 3px;
     color: var(--black);
     border-radius: 8px;
-
   }
 
   textarea {
@@ -2154,8 +2184,6 @@ p {
   .contact-content {
     gap: 20px;
   }
-
-
 }
 
 @media (min-width: 1440px) {
@@ -2220,19 +2248,15 @@ p {
     margin: 0 0 0 96px;
     /* padding: 200px 0 0 0; */
     max-width: 100%;
-
   }
 
   .info-cards.card-fifth .card-p {
     max-width: 637px;
   }
 
-
   .info-cards.card-sixth .card-p {
     max-width: 451px;
   }
-
-
 
   /* Cta Banner */
   .cta-content h2 {
@@ -2254,7 +2278,6 @@ p {
   /* Studio Page */
   .studio-page-wrapper .leapCard .infoCard-img img {
     margin-top: 26px;
-
   }
 
   .studio-page-wrapper .leapCard .info-card-text {
@@ -2265,5 +2288,6 @@ p {
     margin-top: -6px;
   }
 
-  .studio-page-wrapper .info-card-text {}
+  .studio-page-wrapper .info-card-text {
+  }
 }

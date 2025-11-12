@@ -1,23 +1,34 @@
-// components/ProfileDisplay.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ProfileDisplay = ({ member }) => {
-    if (!member) return null;
+  const [isVisible, setIsVisible] = useState(true);
+  const [displayedMember, setDisplayedMember] = useState(member);
 
-    return (
-        <div className='member-profile' >
-            <div className="member-info">
-                <img
-                    src={member.image}
-                    alt={member.name}
-                 
-                />
-                <h3 className='small-p'>{member.name}</h3>
-                <p className='subtitle-p' >{member.role}</p>
-            </div>
-            <p className='member-description'>{member.description}</p>
-        </div>
-    );
+  useEffect(() => {
+    // Fade out current
+    setIsVisible(false);
+
+    // Wait for fade-out to finish (0.4s same as CSS), then swap the member
+    const timeout = setTimeout(() => {
+      setDisplayedMember(member);
+      setIsVisible(true);
+    }, 400);
+
+    return () => clearTimeout(timeout);
+  }, [member]);
+
+  if (!displayedMember) return null;
+
+  return (
+    <div className={`member-profile ${isVisible ? 'active' : ''}`}>
+      <div className="member-info">
+        <img src={displayedMember.image} alt={displayedMember.name} />
+        <h3 className="small-p">{displayedMember.name}</h3>
+        <p className="subtitle-p">{displayedMember.role}</p>
+      </div>
+      <p className="member-description">{displayedMember.description}</p>
+    </div>
+  );
 };
 
 export default ProfileDisplay;
