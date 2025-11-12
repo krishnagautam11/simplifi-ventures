@@ -4,6 +4,7 @@ import { MessageField } from "../atomic-components/MessageField";
 import { FileDropField } from "../atomic-components/FileDropField";
 import { Dropdown } from "../atomic-components/Dropdown";
 import { Button } from "../atomic-components/Button";
+import { DropDownCustom } from "../atomic-components/DropDownCustom";
 
 export const CareerForm = () => {
   const [fullName, setFullName] = useState("");
@@ -91,7 +92,7 @@ export const CareerForm = () => {
           error={errors.phone}
         />
 
-        <Dropdown
+        <DropDownCustom
           label="Position Applying For"
           value={position}
           selectValue={(e) => setPosition(e.target.value)}

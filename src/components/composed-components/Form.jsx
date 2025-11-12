@@ -2,10 +2,12 @@ import { useState } from "react";
 import { InputField } from "../atomic-components/InputField";
 import { MessageField } from '../atomic-components/MessageField';
 import { Button } from "../atomic-components/Button";
+import { PhoneField } from "../atomic-components/PhoneField";
 
 export const Form = () => {
-    const [firstName, setfirstName] = useState('');
-    const [lastName, setlastName] = useState('');
+    const [fullName, setFullName] = useState('');
+    // const [firstName, setfirstName] = useState('');
+    // const [lastName, setlastName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [phone, setPhone] = useState('');
@@ -16,12 +18,22 @@ export const Form = () => {
         e.preventDefault();
 
         const newErrors = {};
-        if (!firstName) newErrors.firstName = "First name is required.";
-        if (!lastName) newErrors.lastName = "Last name is required.";
-        if (!email) newErrors.email = "Email is required.";
-        else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
+        // if (!firstName) newErrors.firstName = "First name is required.";
+        // if (!lastName) newErrors.lastName = "Last name is required.";
+        if (!fullName) newErrors.fullName = "Full name is required"
+        if (!email) newErrors.email = "Email is required";
+        else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email";
         if (!phone) newErrors.phone = "Phone number is required.";
-        else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
+        else {
+
+            const digitsOnly = phone.replace(/\D/g, "");
+            const lastTenDigits = digitsOnly.slice(-10);
+
+            if (lastTenDigits.length !== 10)
+                newErrors.phone = "Enter a valid 10-digit phone number.";
+        }
+        // if (!phone) newErrors.phone = "Phone number is required";
+        // else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number";
 
 
         setErrors(newErrors);
@@ -30,16 +42,17 @@ export const Form = () => {
             return;
         }
 
-        console.log("First Name:", firstName);
-        console.log("Last Name:", lastName);
+        // console.log("First Name:", firstName);
+        // console.log("Last Name:", lastName);
         console.log("Email:", email);
         console.log("Phone:", phone);
 
         console.log("Message:", message);
 
         setSubmitted(true);
-        setfirstName("");
-        setlastName("");
+        // setfirstName("");
+        // setlastName("");
+        setFullName("");
         setEmail("");
         setPhone("");
         setMessage("");
@@ -49,7 +62,7 @@ export const Form = () => {
     if (submitted) {
         return (
             <div className="form-success">
-                <h3>Thank You for Showing Interest!</h3>
+                <h3>Thank You!</h3>
                 <p>Our team will get in touch with you soon.</p>
                 <button className="primary-btn" onClick={() => setSubmitted(false)}>
                     Back to Form
@@ -62,25 +75,25 @@ export const Form = () => {
         <>
             <div className="form-reusable">
                 <InputField
-                    label='First Name'
+                    label='Full Name *'
                     type='text'
-                    placeholderText='Enter First Name'
-                    value={firstName}
-                    inputValue={(e) => setfirstName(e.target.value)}
-                    error={errors.firstName}
+                    placeholderText='Enter Full Name'
+                    value={fullName}
+                    inputValue={(e) => setFullName(e.target.value)}
+                    error={errors.fullName}
                 />
 
-                <InputField
+                {/* <InputField
                     label='Last Name'
                     type='text'
                     placeholderText='Enter Last Name'
                     value={lastName}
                     inputValue={(e) => setlastName(e.target.value)}
                     error={errors.lastName}
-                />
+                /> */}
 
                 <InputField
-                    label='Email'
+                    label='Email *'
                     type='email'
                     placeholderText='Enter Email'
                     value={email}
@@ -88,8 +101,15 @@ export const Form = () => {
                     error={errors.email}
                 />
 
-                <InputField
-                    label='Phone'
+                <PhoneField
+                    label="Phone *"
+                    value={phone}
+                    onChange={setPhone}
+                    error={errors.phone}
+                />
+
+                {/* <InputField
+                    label='Phone *'
                     type='tel'
                     placeholderText='Enter Phone Number'
                     value={phone}
@@ -99,10 +119,10 @@ export const Form = () => {
                     }}
 
                     error={errors.phone}
-                />
+                /> */}
 
                 <MessageField
-                    label='Message'
+                    label='Message *'
                     type='text'
                     enterMessage='Enter Message'
                     value={message}

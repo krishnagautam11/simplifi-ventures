@@ -16,7 +16,10 @@ export const Career = () => {
         <div className="career-content">
 
           <div className="career-form-section">
-            <CareerForm />
+            <div className="career-form">
+              <CareerForm />
+            </div>
+
           </div>
         </div>
       </div>

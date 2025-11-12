@@ -15,7 +15,7 @@ export const ProcessExplain = () => {
                 <div className="processExplain-content">
                     <div className="processExplain-cards">
                         <div className="processCardOne">
-                            <h2>Idea</h2>
+                            <h2>Step-1: Idea</h2>
                             <div className="processExplain-card flex justify-around">
                                 <img src={ProcesImg1} alt="" />
                                 <div className="processExplain-text ">
@@ -29,7 +29,7 @@ export const ProcessExplain = () => {
                         </div>
 
                          <div className="processCardTwo">
-                            <h2>Product</h2>
+                            <h2>Step-2: Product</h2>
                             <div className="processExplain-card flex justify-around">
                                 <img src={ProcesImg2} alt="" />
                                 <div className="processExplain-text ">
@@ -40,7 +40,7 @@ export const ProcessExplain = () => {
                         </div>
 
                          <div className="processCardThree">
-                            <h2>Traction</h2>
+                            <h2>Step-3:Traction</h2>
                             <div className="processExplain-card flex justify-around">
                                 <img src={ProcesImg3} alt="" />
                                 <div className="processExplain-text ">
@@ -51,7 +51,7 @@ export const ProcessExplain = () => {
                         </div>
 
                          <div className="processCardFourth">
-                            <h2>Scale</h2>
+                            <h2>Step-4: Scale</h2>
                             <div className="processExplain-card flex justify-around">
                                 <img src={ProcesImg4} alt="" />
                                 <div className="processExplain-text ">

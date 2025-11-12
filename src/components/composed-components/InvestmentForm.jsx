@@ -3,6 +3,8 @@ import { InputField } from "../atomic-components/InputField";
 import { Dropdown } from "../atomic-components/Dropdown";
 import { MessageField } from "../atomic-components/MessageField";
 import { Button } from "../atomic-components/Button";
+import { PhoneField } from "../atomic-components/PhoneField";
+import { DropDownCustom } from "../atomic-components/DropDownCustom";
 
 export const InvestmentForm = () => {
   const [fullName, setFullName] = useState("");
@@ -38,10 +40,29 @@ export const InvestmentForm = () => {
     if (!fullName) newErrors.fullName = "Full name is required.";
     if (!email) newErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
+    // if (!phone) newErrors.phone = "Phone number is required.";
+    // else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
     if (!phone) newErrors.phone = "Phone number is required.";
-    else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
+    else {
+
+      const digitsOnly = phone.replace(/\D/g, "");
+      const lastTenDigits = digitsOnly.slice(-10);
+
+      if (lastTenDigits.length !== 10)
+        newErrors.phone = "Enter a valid 10-digit phone number.";
+    }
     if (!consent) newErrors.consent = "Please accept the consent.";
 
+
+    if (!phone) newErrors.phone = "Phone number is required.";
+    else {
+
+      const digitsOnly = phone.replace(/\D/g, "");
+      const lastTenDigits = digitsOnly.slice(-10);
+
+      if (lastTenDigits.length !== 10)
+        newErrors.phone = "Enter a valid 10-digit phone number.";
+    }
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
@@ -82,42 +103,44 @@ export const InvestmentForm = () => {
     <div className="joinus-form">
       <form onSubmit={handleSubmit} className="form-reusable">
         <InputField
-          label="Full Name"
+          label="Full Name *"
           type="text"
+          placeholderText='Enter Full Name'
           value={fullName}
           inputValue={(e) => setFullName(e.target.value)}
-           error={errors.fullName}
+          error={errors.fullName}
         />
-        
+
 
         <InputField
-          label="Email"
+          label="Email *"
           type="email"
+          placeholderText='Enter Email '
           value={email}
           inputValue={(e) => setEmail(e.target.value)}
-           error={errors.email}
-          
-        />
-       
+          error={errors.email}
 
-        <InputField
-          label="Phone"
-          type="tel"
+        />
+
+
+        <PhoneField
+          label="Phone *"
+          placeholderText='Enter Phone Number'
           value={phone}
-          inputValue={(e) => setPhone(e.target.value)}
+          onChange={setPhone}
           error={errors.phone}
         />
-        
 
-        <Dropdown
-          label="Investor Type"
+
+        <DropDownCustom
+          label="Investor Type *"
           value={investorType}
           selectValue={(e) => setInvestorType(e.target.value)}
           optionValue={investorTypes}
         />
 
-        <Dropdown
-          label="Investment Range"
+        <DropDownCustom
+          label="Investment Range *"
           value={investmentRange}
           selectValue={(e) => setInvestmentRange(e.target.value)}
           optionValue={investmentRanges}
@@ -125,6 +148,7 @@ export const InvestmentForm = () => {
 
         <MessageField
           label="Message / Interest"
+          enterMessage='Enter Message'
           value={message}
           inputValue={(e) => setMessage(e.target.value)}
         />
@@ -142,7 +166,7 @@ export const InvestmentForm = () => {
         </div>
         {errors.consent && <p className="error-text">{errors.consent}</p>}
 
-         <Button btnType="submit" className="primary-btn" btnText="Submit"/>
+        <Button btnType="submit" className="primary-btn" btnText="Submit" />
       </form>
     </div>
   );

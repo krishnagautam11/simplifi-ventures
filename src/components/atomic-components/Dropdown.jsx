@@ -1,8 +1,8 @@
-export const Dropdown = ({ value, selectValue, optionValue, error }) => {
+export const Dropdown = ({ label, value, selectValue, optionValue, error }) => {
     return (
         <>
             <div className="input-fields">
-                <label htmlFor="">Select Contact Reason</label>
+                <label htmlFor="">{label}</label>
                 <select name="" id="" value={value} onChange={selectValue}>
                     {
                         optionValue.map((fruit) => (
