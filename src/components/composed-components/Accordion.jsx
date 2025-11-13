@@ -41,7 +41,7 @@ export default function Accordion()  {
         <div>
            
             <div className="p-2 m-8 accordion">
-                <h2 className='text-2xl mb-2 mx-auto  '>FAQs</h2>
+                <h2 className='  '>Frequently Asked Questions(FAQs)</h2>
                 {accordions.map((accordion) => (
                     <AccordionItem
                         key={accordion.key}

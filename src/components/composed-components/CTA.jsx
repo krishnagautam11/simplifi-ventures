@@ -1,4 +1,7 @@
-export const CTA = ({ content, className, pulse, droplets }) => {
+import { Link } from 'react-router-dom';
+
+
+export const CTA = ({ content, className, pulse, droplets, link }) => {
   const pulseClass = pulse || "circle-layer";
   const dropClass = droplets || "";
 
@@ -9,7 +12,9 @@ export const CTA = ({ content, className, pulse, droplets }) => {
         <p>{content.description}</p>
 
         <div className="cta-buttons">
-          <button className="primary-btn">{content.button}</button>
+         <Link to={link || "/"} className="primary-btn">
+            {content.button}
+          </Link>
         </div>
       </div>
 

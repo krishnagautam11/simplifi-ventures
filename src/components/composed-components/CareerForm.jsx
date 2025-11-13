@@ -4,13 +4,14 @@ import { MessageField } from "../atomic-components/MessageField";
 import { FileDropField } from "../atomic-components/FileDropField";
 import { Dropdown } from "../atomic-components/Dropdown";
 import { Button } from "../atomic-components/Button";
+import { PhoneField } from "../atomic-components/PhoneField";
 import { DropDownCustom } from "../atomic-components/DropDownCustom";
 
 export const CareerForm = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [position, setPosition] = useState("");
+  const [position, setPosition] = useState("React Native Developer");
   const [message, setMessage] = useState("");
   const [resume, setResume] = useState(null);
   const [submitted, setSubmitted] = useState(false);
@@ -29,8 +30,16 @@ export const CareerForm = () => {
     if (!fullName) newErrors.fullName = "Full name is required.";
     if (!email) newErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
+
     if (!phone) newErrors.phone = "Phone number is required.";
-    else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
+    else {
+
+      const digitsOnly = phone.replace(/\D/g, "");
+      const lastTenDigits = digitsOnly.slice(-10);
+
+      if (lastTenDigits.length !== 10)
+        newErrors.phone = "Enter a valid 10-digit phone number.";
+    }
     if (!resume) newErrors.consent = "Please upload your resume.";
 
     setErrors(newErrors);
@@ -50,7 +59,7 @@ export const CareerForm = () => {
     setEmail("");
     setPhone("");
     setMessage("");
-  
+
   };
 
 
@@ -73,6 +82,7 @@ export const CareerForm = () => {
         <InputField
           label="Full Name"
           type="text"
+          placeholderText='Enter Full Name'
           value={fullName}
           inputValue={(e) => setFullName(e.target.value)}
           error={errors.fullName}
@@ -80,28 +90,33 @@ export const CareerForm = () => {
         <InputField
           label="Email"
           type="email"
+          placeholderText='Enter Email'
           value={email}
           inputValue={(e) => setEmail(e.target.value)}
           error={errors.email}
         />
-        <InputField
-          label="Phone"
-          type="tel"
+
+        <PhoneField
+          label="Phone *"
+          placeholderText='Enter Phone Number'
           value={phone}
-          inputValue={(e) => setPhone(e.target.value)}
+          onChange={setPhone}
           error={errors.phone}
         />
+
+       
 
         <DropDownCustom
           label="Position Applying For"
           value={position}
           selectValue={(e) => setPosition(e.target.value)}
           optionValue={OpenPositions}
-          error={errors.position}
+          
         />
 
         <MessageField
           label="Message / Cover Letter"
+          enterMessage='Enter Message'
           value={message}
           inputValue={(e) => setMessage(e.target.value)}
         />
@@ -111,7 +126,7 @@ export const CareerForm = () => {
           error={errors.resume}
         />
 
-        <Button btnType="submit" className="primary-btn" btnText="Submit Application"/>
+        <Button btnType="submit" className="primary-btn" btnText="Submit Application" />
       </form>
     </div>
   );

@@ -39,7 +39,7 @@ export const Studio = () => {
         'We know that starting a company is not easy. We help entrepreneurs manage a start up by advising them on the operational challenges of building a new company.',
         'Rather than reinvent the wheel, we seek technology accelerators that enable our entrepreneurs and financial leaders to transform financial services better, cheaper and faster than they can do on their own.',
         'We have monthly rountable discussions with industry experts exploring fintech innovation in the industry and looking for potential growth areas.',
-        'Located in the heart of Silicon Valley, we would love to hear from you. Please send us a message using our Contact Us Form or drop us an email at:Learnmore@simplifiventures.com'
+        'Located in the heart of Silicon Valley, we would love to hear from you. Please send us a message using our Contact Us Form or drop us an email at: learnmore@simplifiventures.com'
     ]
 
     const ctaContent = [{ 'title': 'Invest in the Future of Finance', 'description': 'Empower fintech startups redefining the global financial landscape.', 'button': 'Join Us' },

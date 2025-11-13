@@ -54,15 +54,6 @@ export const InvestmentForm = () => {
     if (!consent) newErrors.consent = "Please accept the consent.";
 
 
-    if (!phone) newErrors.phone = "Phone number is required.";
-    else {
-
-      const digitsOnly = phone.replace(/\D/g, "");
-      const lastTenDigits = digitsOnly.slice(-10);
-
-      if (lastTenDigits.length !== 10)
-        newErrors.phone = "Enter a valid 10-digit phone number.";
-    }
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
@@ -132,19 +123,21 @@ export const InvestmentForm = () => {
         />
 
 
-        <DropDownCustom
-          label="Investor Type *"
-          value={investorType}
-          selectValue={(e) => setInvestorType(e.target.value)}
-          optionValue={investorTypes}
-        />
+        <div className="investment-form-dropdown">
+          <DropDownCustom
+            label="Investor Type *"
+            value={investorType}
+            selectValue={(e) => setInvestorType(e.target.value)}
+            optionValue={investorTypes}
+          />
 
-        <DropDownCustom
-          label="Investment Range *"
-          value={investmentRange}
-          selectValue={(e) => setInvestmentRange(e.target.value)}
-          optionValue={investmentRanges}
-        />
+          <DropDownCustom
+            label="Investment Range *"
+            value={investmentRange}
+            selectValue={(e) => setInvestmentRange(e.target.value)}
+            optionValue={investmentRanges}
+          />
+        </div>
 
         <MessageField
           label="Message / Interest"

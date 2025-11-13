@@ -28,6 +28,7 @@ export const Resources = () => {
         'Rather than reinvent the wheel, we seek technology accelerators that enable our entrepreneurs and financial leaders to transform financial services better, cheaper and faster than they can do on their own.',
         'We have monthly rountable discussions with industry experts exploring fintech innovation in the industry and looking for potential growth areas.',
         'Located in the heart of Silicon Valley, we would love to hear from you. Please send us a message using our Contact Us Form or drop us an email at:Learnmore@simplifiventures.com'
+    
     ]
 
 
@@ -38,7 +39,7 @@ export const Resources = () => {
             <SwiperCarousel />
 
             <InfoCards img={infoCardJoinUs} h2={InfoCardHeading[9]} p={InfoCardDescrption[7]} className="card-fifth" />
-            <InfoCards img={infoCardFooter} h2={InfoCardHeading[10]} p={InfoCardDescrption[5]} className="card-sixth" />
+            <InfoCards img={infoCardFooter} h2={InfoCardHeading[10]} p={InfoCardDescrption[8]} className="card-sixth" />
         </main>
     )
 }

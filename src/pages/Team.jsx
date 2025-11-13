@@ -50,7 +50,7 @@ export const Team = () => {
 
 
                 <TeamShowing />
-                <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' />
+                <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' link="/contact"/>
                 <InfoCards img={infoCardJoin} h2={InfoCardHeading[5]} p={InfoCardDescrption[5]} className="card-fifth" />
                 <InfoCards img={infoCardFooter} h2={InfoCardHeading[6]} p={InfoCardDescrption[6]} className="card-sixth" />
 

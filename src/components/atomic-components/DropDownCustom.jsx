@@ -16,7 +16,7 @@ export const DropDownCustom = ({ label, value, selectValue, optionValue, error }
   }, []);
 
   const handleSelect = (option) => {
-    selectValue({ target: { value: option.value } }); 
+    selectValue({ target: { value: option.value } });
     setOpen(false);
   };
 
@@ -26,7 +26,8 @@ export const DropDownCustom = ({ label, value, selectValue, optionValue, error }
 
       <div className="dropdown-selected" onClick={() => setOpen(!open)}>
         {value}
-        <span className={`custom-arrow ${open ? "up" : "down"}`}>▾</span>
+        <span className={`custom-arrow ${open ? "open" : ""}`}></span>
+
       </div>
 
       {open && (

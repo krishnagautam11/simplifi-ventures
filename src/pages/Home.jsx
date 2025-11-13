@@ -30,7 +30,7 @@ const InfoCardDescrption = ['We are a business-to-business fintech focused ventu
     'We push our entrepreneurs to develop technologies that drive measurable value for our financial leaders. Our team of engineers work side by side with our portfolio companies to solve key problems so that they can focus on operating.',
     'We run as an independent financial services venture studio. Today we have global partnerships with financial institutions to incubate new fintech innovations.',
     'We have monthly rountable discussions with industry experts exploring fintech innovation in the industry and looking for potential growth areas.',
-    'Located in the heart of Silicon Valley, we would love to hear from you. Please send us a message using our Contact Us Form or drop us an email at:Learnmore@simplifiventures.com'
+    'Located in the heart of Silicon Valley, we would love to hear from you. Please send us a message using our Contact Us Form or drop us an email at: learnmore@simplifiventures.com'
 ]
 
 const investedCompanies = [{ id: 1, src: marqueeImg1 },
@@ -46,7 +46,7 @@ const investedCompanies = [{ id: 1, src: marqueeImg1 },
 
 ]
 
-const ctaContent = [{ 'title': 'Invest in the Future of Finance', 'description': 'Empower fintech startups redefining the global financial landscape.', 'button': 'Join Us' },
+const ctaContent = [{ 'title': 'Invest in the Future of Finance', 'description': 'Join the movement reshaping global finance, one fintech breakthrough at a time.', 'button': 'Join Us' },
 {
     title: "Let’s Build the Future Together",
     description: "Have a question, idea, or opportunity? Our team would love to hear from you. Reach out and let’s start a conversation.",
@@ -66,7 +66,7 @@ export const Home = () => {
                 <InvestedProjects marqueeImages={investedCompanies} />
                 <InfoCards img4={infoCard4} h2={InfoCardHeading[3]} p={InfoCardDescrption[3]} className="card-fourth" />
 
-                <CTA content={ctaContent[0]} className='investorBanner' />
+                <CTA content={ctaContent[0]} className='investorBanner' link="/join" />
                 <InfoCards img={infoCard5} h2={InfoCardHeading[4]} p={InfoCardDescrption[4]} className="card-fifth " />
                 {/* <CTA content={ctaContent[1]} className='contactBanner' droplets='dropEffect' /> */}
                 <InfoCards img={infoCard6} h2={InfoCardHeading[5]} p={InfoCardDescrption[5]} className="card-sixth" />

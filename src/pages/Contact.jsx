@@ -38,7 +38,7 @@ export const Contact = () => {
                                 <div className="contact-email flex flex-col gap-2 contact-detail-fields">
                                     {/* <h3>Email</h3> */}
 
-                                    <p><a href="mailto:someone@example.com">  <FontAwesomeIcon icon={faEnvelope} /> Learnmore@simplifiventures.com</a></p>
+                                    <p><a href="mailto:someone@example.com">  <FontAwesomeIcon icon={faEnvelope} /> learn@simplifiventures.com</a></p>
                                 </div>
                             </div>
 
