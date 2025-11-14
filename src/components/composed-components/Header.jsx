@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "../../assets/images/Logo.png";
 import { useAppContext } from "../../context/AppContext";
 import "../../styles/base.css";
@@ -22,21 +22,21 @@ export const Header = () => {
     >
       <nav className="flex items-center desktop-navbar">
         {/* Desktop Menu */}
-        <Link to="/" className="text-2xl font-bold desktop-logo">
+        <NavLink to="/"  className=" desktop-logo">
           <img src={Logo} alt="Simplifi Ventures" />
-        </Link>
+        </NavLink>
 
         <div className="hidden md:flex items-center space-x-6 gap-4">
-          <Link to="/team" className="hover:text-gray-300">Team</Link>
-          <Link to="/studio" className="hover:text-gray-300">Studio</Link>
-          <Link to="/resources" className="hover:text-gray-300">Resources</Link>
+          <NavLink to="/team"   activeClassName="active">Team</NavLink>
+          <NavLink to="/studio" activeClassName="active">Studio</NavLink>
+          <NavLink to="/resources" activeClassName="active">Resources</NavLink>
         </div>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden mobile-nav">
-          <Link to="/" className="text-2xl font-bold">
+          <NavLink to="/" className="text-2xl font-bold">
             <h3>Simplifi Ventures</h3>
-          </Link>
+          </NavLink>
           <button
             onClick={toggleMenu}
             className={`focus:outline-none hamburger ${isMenuOpen ? "open" : ""}`}
@@ -50,9 +50,9 @@ export const Header = () => {
 
       {/* Mobile Menu */}
       <div className={`mobile-menu md:hidden flex flex-col space-y-4 ${isMenuOpen ? "open" : ""}`}>
-        <Link to="/team" onClick={toggleMenu} className="hover:text-gray-300">Team</Link>
-        <Link to="/studio" onClick={toggleMenu} className="hover:text-gray-300">Studio</Link>
-        <Link to="/resources" onClick={toggleMenu} className="hover:text-gray-300">Resources</Link>
+        <NavLink to="/team" onClick={toggleMenu} activeClassName="active">Team</NavLink>
+        <NavLink to="/studio" onClick={toggleMenu} activeClassName="active">Studio</NavLink>
+        <NavLink to="/resources" onClick={toggleMenu} activeClassName="active">Resources</NavLink>
       </div>
     </header>
   );

@@ -19,6 +19,9 @@ import { Career } from "./pages/Career";
 import { ScrollingAnimation } from "./components/composed-components/ScrollingAnimation";
 import { ScrollToTopButton } from "./components/atomic-components/ScrollToTopBtn";
 import { Loader } from "./components/atomic-components/Loader";
+// import lax from 'lax.js';
+
+
 
 
 // ⭐⭐ Route loader wrapper
@@ -40,8 +43,34 @@ const RouteLoaderWrapper = ({ children }) => {
 };
 
 
+
+
 function App() {
+
+
   ScrollingAnimation(".reveal", 120, false);
+
+  // useEffect(() => {
+  //   // Initialize lax.js globally when the app mounts
+  //   lax.init();
+
+  //   // Add a scroll driver. This is typically done once for scroll-based animations.
+  //   lax.addDriver('scrollY', function () {
+  //     return window.scrollY;
+  //   });
+
+  //   // Optional: handle window resize for responsive animations
+  //   function handleResize() {
+  //     lax.update();
+  //   }
+  //   window.addEventListener('resize', handleResize);
+  //   handleResize(); // initial call
+
+  //   // Cleanup global lax.js drivers/listeners on unmount if necessary for a single-page app structure
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, [])
 
   return (
     <AppProvider>

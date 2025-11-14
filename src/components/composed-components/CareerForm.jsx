@@ -6,10 +6,11 @@ import { FileDropField } from "../atomic-components/FileDropField";
 import { Button } from "../atomic-components/Button";
 import { PhoneField } from "../atomic-components/PhoneField";
 import { DropDownCustom } from "../atomic-components/DropDownCustom";
+import { SuccessMessage } from "./SucessMessage";
 
 export const CareerForm = () => {
   const { formData, updateForm } = useAppContext();
-
+  const [messageClose, setMessageClose] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -61,22 +62,34 @@ export const CareerForm = () => {
     });
   };
 
+  const closeMessage = (e) => {
+
+    setMessageClose(true)
+    setSubmitted(false)
+  }
+
   if (submitted) {
     return (
       <div className="form-success">
-        <h3>Application Submitted!</h3>
+
+        <SuccessMessage closeMessage={closeMessage} messageClose={messageClose} />
+
+        {/* <h3>Application Submitted!</h3>
         <p>Thank you for applying. Our HR team will contact you soon.</p>
         <button className="primary-btn" onClick={() => setSubmitted(false)}>
           Back to Form
-        </button>
+        </button> */}
       </div>
     );
   }
 
+
+
+
   return (
     <div className="career-form">
       <form className="form-reusable" onSubmit={handleSubmit}>
-        
+
         <InputField
           label="Full Name *"
           type="text"

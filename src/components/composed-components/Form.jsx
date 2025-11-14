@@ -4,8 +4,12 @@ import { InputField } from "../atomic-components/InputField";
 import { MessageField } from '../atomic-components/MessageField';
 import { Button } from "../atomic-components/Button";
 import { PhoneField } from "../atomic-components/PhoneField";
+import { SuccessMessage } from "./SucessMessage";
 
 export const Form = () => {
+
+    const [messageClose, setMessageClose] = useState(false);
+
     const { formData, updateForm } = useAppContext();
 
     const [submitted, setSubmitted] = useState(false);
@@ -47,14 +51,23 @@ export const Form = () => {
         });
     };
 
+    const closeMessage = (e) => {
+
+        setMessageClose(true)
+        setSubmitted(false)
+    }
+
     if (submitted) {
         return (
             <div className="form-success">
-                <h3>Thank You!</h3>
+
+                <SuccessMessage closeMessage={closeMessage} messageClose={messageClose} />
+
+                {/* <h3>Thank You!</h3>
                 <p>Our team will get in touch with you soon.</p>
                 <button className="primary-btn" onClick={() => setSubmitted(false)}>
                     Back to Form
-                </button>
+                </button> */}
             </div>
         );
     }

@@ -57,7 +57,7 @@ return (
                                 <h3>{newsCard.title}</h3>
                                 <p>{newsCard.author}</p>
                                 <p>{newsCard.date}</p>
-                                <p>{newsCard.description}</p>
+                                <p className='news-card-description'>{newsCard.description}</p>
                             </div>
 
                         </SwiperSlide>

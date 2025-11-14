@@ -591,7 +591,7 @@ h2 {
   /* border: 1px solid var(--gray); */
   overflow: hidden;
   opacity: 0;
-  
+
   transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
@@ -976,6 +976,36 @@ textarea:focus {
   text-align: center;
 }
 
+/* ProcessCard - new */
+.processExplain2-cards img {
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.processExplain-card1,
+.processExplain-card2 {
+  flex-direction: column;
+  padding: 20px 10px;
+  text-align: center;
+  align-items: center;
+  border: 1px solid var(--gray);
+  margin: 21px 0;
+}
+
+.processExplain-text2 p,
+ul,
+li {
+  color: var(--grayText);
+  font-size: 18px;
+  line-height: 1.27;
+  padding-top: 8px;
+  max-width: 450px;
+}
+
+
+/* ProcessCard old */
+
 .processExplain-title h1 {}
 
 .processExplain-content h2 {
@@ -985,6 +1015,7 @@ textarea:focus {
 }
 
 .processExplain-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   box-shadow: 0 7px 15px rgba(0, 0, 0, 0.09);
@@ -992,6 +1023,28 @@ textarea:focus {
   border: 1px solid var(--lightGray);
   width: 100%;
   color: var(--white);
+  transition: all 0.4s ease;
+}
+
+.processExplain-card::before {
+  position: absolute;
+  content: '';
+  border-left: 2px solid var(--darkBlueColor);
+  border-bottom: 2px solid var(--darkBlueColor);
+
+  width: 30px;
+  height: 30px;
+
+  right: 0;
+  top: 0;
+  transition: all 0.4s ease;
+}
+
+.processExplain-card:hover::before {
+  background: var(--darkBlueColor);
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
 }
 
 .processExplain-card img {
@@ -1392,6 +1445,10 @@ iframe {
     justify-content: center;
 } */
 
+.scroll-to-top svg {
+  width: 15px;
+}
+
 /* Footer */
 footer {
   background: var(--darkBlueColor);
@@ -1451,7 +1508,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff; /* or transparent */
+  background: #fff;
+  /* or transparent */
   z-index: 9999;
 }
 
@@ -1460,7 +1518,7 @@ p {
   height: 44.8px;
   color: #554cb5;
   position: relative;
-  background: radial-gradient(11.2px,currentColor 94%,#0000);
+  background: radial-gradient(11.2px, currentColor 94%, #0000);
 }
 
 .loader:before {
@@ -1468,13 +1526,13 @@ p {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(10.08px at bottom right,#0000 94%,currentColor) top    left,
-          radial-gradient(10.08px at bottom left ,#0000 94%,currentColor) top    right,
-          radial-gradient(10.08px at top    right,#0000 94%,currentColor) bottom left,
-          radial-gradient(10.08px at top    left ,#0000 94%,currentColor) bottom right;
+  background: radial-gradient(10.08px at bottom right, #0000 94%, currentColor) top left,
+    radial-gradient(10.08px at bottom left, #0000 94%, currentColor) top right,
+    radial-gradient(10.08px at top right, #0000 94%, currentColor) bottom left,
+    radial-gradient(10.08px at top left, #0000 94%, currentColor) bottom right;
   background-size: 22.4px 22.4px;
   background-repeat: no-repeat;
-  animation: loader 1.5s infinite cubic-bezier(0.3,1,0,1);
+  animation: loader 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
 }
 
 @keyframes loader {
@@ -1497,8 +1555,26 @@ p {
 
 .map-skeleton {
   width: 100%;
-  height: 400px;   /* Same as your iframe height */
+  height: 400px;
+  /* Same as your iframe height */
   border-radius: 4px;
+}
+
+
+/* Resources Page */
+.news-section {
+  background-color: var(--lightWhite);
+}
+
+
+.news-card-content{
+  background-color: var(--white);
+  padding: 15px;
+}
+
+
+.news-card-description{
+  color:var(--grayText);
 }
 
 
@@ -2723,6 +2799,103 @@ p {
   }
 
 
+
+  .processExplain-text2 ul {
+    padding: 8px 0;
+  }
+
+  .processExplain-text2 ul,
+  li {
+    color: var(--grayText);
+    font-size: 18px;
+    line-height: 1.27;
+  }
+
+  .processExplain-text2 p {
+    color: var(--grayText);
+    font-size: 18px;
+    line-height: 1.27;
+    padding-top: 8px;
+    max-width: 450px;
+  }
+
+  .processExplain2-cards {
+    position: relative;
+  }
+
+  .processExplain2-cards::before {
+    position: absolute;
+    content: '';
+    /* background: var(--darkBlueColor); */
+    width: 0;
+    height: 100%;
+    top: 0;
+    /* left: 0; */
+    right: 0;
+    left: 50%;
+    bottom: 0;
+    border-right: 5px dashed var(--darkBlueText);
+  }
+
+  .processCardOne1 {
+    width: 100%;
+    position: relative;
+    justify-content: flex-end;
+    display: flex;
+  }
+
+  .processCardOne1::before {
+    position: absolute;
+    content: '';
+    /* background: var(--lightBlueColor); */
+    width: 63px;
+    height: 0px;
+    border-top: 4px dashed var(--darkBlueText);
+    top: 8%;
+    left: 50.9%;
+  }
+
+  .processExplain-card1 {
+    flex-direction: column;
+    width: 44%;
+    padding: 20px;
+  }
+
+
+  .processCardTwo2 {
+    text-align: right;
+    width: 100%;
+    position: relative;
+    justify-content: flex-start;
+    display: flex;
+  }
+
+  .processCardTwo2::before {
+    position: absolute;
+    content: '';
+    /* background: var(--lightBlueColor); */
+    width: 63px;
+    height: 0px;
+    border-top: 4px dashed var(--darkBlueText);
+    top: 5%;
+    left: 44%;
+  }
+
+
+  .processExplain-card2 {
+    flex-direction: column;
+    align-items: flex-end;
+    display: flex;
+    width: 42%;
+  }
+
+  .processExplain2-cards img {
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+
   /* Career Page */
   .career-page-wrapper {
     padding-top: 200px;
@@ -3043,6 +3216,32 @@ p {
 
   }
 
+
+  /* Contact Form */
+  .success-wrapper {
+    background: #e1e1e1;
+    width: 51%;
+    height: 100%;
+    position: absolute;
+    top: 25%;
+    left: 26%;
+    color: red;
+    padding: 16px;
+  }
+
+  .message-close {
+    font-size: 28px;
+    text-align: end;
+  }
+
+  .success-wrapper.closed {
+    display: none;
+  }
+
+  .success-wrapper.open {
+    display: block;
+  }
+
   /* Studio Page */
 
   .approach-cards-section .custom-container,
@@ -3115,6 +3314,7 @@ p {
     width: fit-content;
   }
 
+
   /* Contact Page */
 
 
@@ -3147,6 +3347,100 @@ p {
     padding: 40px;
   }
 
+  .processExplain-text2 ul {
+    padding: 8px 0;
+  }
+
+  .processExplain-text2 ul,
+  li {
+    color: var(--grayText);
+    font-size: 18px;
+    line-height: 1.27;
+  }
+
+  .processExplain-text2 p {
+    color: var(--grayText);
+    font-size: 18px;
+    line-height: 1.27;
+    padding-top: 8px;
+    max-width: 450px;
+  }
+
+  .processExplain2-cards {
+    position: relative;
+  }
+
+  .processExplain2-cards::before {
+    position: absolute;
+    content: '';
+    /* background: var(--darkBlueColor); */
+    width: 0;
+    height: 100%;
+    top: 0;
+    /* left: 0; */
+    right: 0;
+    left: 50%;
+    bottom: 0;
+    border-right: 5px dashed var(--darkBlueText);
+  }
+
+  .processCardOne1 {
+    width: 100%;
+    position: relative;
+    justify-content: flex-end;
+    display: flex;
+  }
+
+  .processCardOne1::before {
+    position: absolute;
+    content: '';
+    /* background: var(--lightBlueColor); */
+    width: 63px;
+    height: 0px;
+    border-top: 4px dashed var(--darkBlueText);
+    top: 8%;
+    left: 50.9%;
+  }
+
+  .processExplain-card1 {
+    flex-direction: column;
+    width: 44%;
+    padding: 20px;
+  }
+
+
+  .processCardTwo2 {
+    text-align: right;
+    width: 100%;
+    position: relative;
+    justify-content: flex-start;
+    display: flex;
+  }
+
+  .processCardTwo2::before {
+    position: absolute;
+    content: '';
+    /* background: var(--lightBlueColor); */
+    width: 63px;
+    height: 0px;
+    border-top: 4px dashed var(--darkBlueText);
+    top: 5%;
+    left: 44%;
+  }
+
+
+  .processExplain-card2 {
+    flex-direction: column;
+    align-items: flex-end;
+    display: flex;
+    width: 42%;
+  }
+
+  .processExplain2-cards img {
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 
 
   /* Team Page */

@@ -1,6 +1,8 @@
 import { InvestmentForm } from '../components/composed-components/InvestmentForm';
 import JoinBg from '../assets/images/InfoCard_img7.png';
 import { ProcessExplain } from '../components/composed-components/ProcessExplain';
+import { ProcessExplain2 } from '../components/composed-components/ProcessExplain2';
+
 
 export const JoinUs = () => {
   return (
@@ -14,8 +16,9 @@ export const JoinUs = () => {
           </p>
         </div>
 
+       <ProcessExplain2/>
 
-        <ProcessExplain/>
+        {/* <ProcessExplain/> */}
 
 
         <div className="joinUs-content justify-center">

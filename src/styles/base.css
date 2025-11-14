@@ -29,6 +29,7 @@
     --grayText: #333333;
     --lightGray: #C2CFE0;
     --white: #FFFFFF;
+    --lightWhite:#F3F3F3;
     --bannerGray: rgba(255, 255, 255, 0.15);
     --bannerShadow: rgba(255, 255, 255, 0.3);
     --font-family: "Nunito Sans", sans-serif;
@@ -70,12 +71,13 @@ a {
 }
 
 .header a:hover {
-    color: var(--lighBlueColor);
+    color: var(--lightBlueColor);
     text-decoration: underline;
 }
 
 .header a.active {
-    color: var(--lighBlueColor);
+    color: var(--lightBlueColor);
+    text-decoration: none;
 }
 
 h1,
