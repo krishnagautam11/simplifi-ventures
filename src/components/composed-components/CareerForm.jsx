@@ -1,19 +1,15 @@
 import { useState } from "react";
+import { useAppContext } from "../../context/AppContext";
 import { InputField } from "../atomic-components/InputField";
 import { MessageField } from "../atomic-components/MessageField";
 import { FileDropField } from "../atomic-components/FileDropField";
-import { Dropdown } from "../atomic-components/Dropdown";
 import { Button } from "../atomic-components/Button";
 import { PhoneField } from "../atomic-components/PhoneField";
 import { DropDownCustom } from "../atomic-components/DropDownCustom";
 
 export const CareerForm = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [position, setPosition] = useState("React Native Developer");
-  const [message, setMessage] = useState("");
-  const [resume, setResume] = useState(null);
+  const { formData, updateForm } = useAppContext();
+
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -27,41 +23,43 @@ export const CareerForm = () => {
     e.preventDefault();
 
     const newErrors = {};
-    if (!fullName) newErrors.fullName = "Full name is required.";
-    if (!email) newErrors.email = "Email is required.";
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
 
-    if (!phone) newErrors.phone = "Phone number is required.";
+    if (!formData.fullName) newErrors.fullName = "Full name is required.";
+    if (!formData.email) newErrors.email = "Email is required.";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Enter a valid email.";
+
+    if (!formData.phone) newErrors.phone = "Phone number is required.";
     else {
-
-      const digitsOnly = phone.replace(/\D/g, "");
+      const digitsOnly = formData.phone.replace(/\D/g, "");
       const lastTenDigits = digitsOnly.slice(-10);
-
       if (lastTenDigits.length !== 10)
         newErrors.phone = "Enter a valid 10-digit phone number.";
     }
-    if (!resume) newErrors.consent = "Please upload your resume.";
+
+    if (!formData.resume) newErrors.resume = "Please upload your resume.";
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0) {
-      return;
-    }
+    if (Object.keys(newErrors).length > 0) return;
 
-    console.log("Full Name:", fullName);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    console.log("Message:", message);
-
+    console.log("Full Name:", formData.fullName);
+    console.log("Email:", formData.email);
+    console.log("Phone:", formData.phone);
+    console.log("Position:", formData.position);
+    console.log("Message:", formData.message);
 
     setSubmitted(true);
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
 
+    updateForm({
+      fullName: "",
+      email: "",
+      phone: "",
+      position: "React Native Developer",
+      message: "",
+      resume: null,
+    });
   };
-
 
   if (submitted) {
     return (
@@ -76,57 +74,59 @@ export const CareerForm = () => {
   }
 
   return (
-    <div className=" career-form">
-
+    <div className="career-form">
       <form className="form-reusable" onSubmit={handleSubmit}>
+        
         <InputField
-          label="Full Name"
+          label="Full Name *"
           type="text"
-          placeholderText='Enter Full Name'
-          value={fullName}
-          inputValue={(e) => setFullName(e.target.value)}
+          placeholderText="Enter Full Name"
+          value={formData.fullName || ""}
+          inputValue={(e) => updateForm({ fullName: e.target.value })}
           error={errors.fullName}
         />
+
         <InputField
-          label="Email"
+          label="Email *"
           type="email"
-          placeholderText='Enter Email'
-          value={email}
-          inputValue={(e) => setEmail(e.target.value)}
+          placeholderText="Enter Email"
+          value={formData.email || ""}
+          inputValue={(e) => updateForm({ email: e.target.value })}
           error={errors.email}
         />
 
         <PhoneField
           label="Phone *"
-          placeholderText='Enter Phone Number'
-          value={phone}
-          onChange={setPhone}
+          value={formData.phone || ""}
+          onChange={(val) => updateForm({ phone: val })}
           error={errors.phone}
         />
 
-       
-
         <DropDownCustom
-          label="Position Applying For"
-          value={position}
-          selectValue={(e) => setPosition(e.target.value)}
+          label="Position Applying For *"
+          value={formData.position || "React Native Developer"}
+          selectValue={(e) => updateForm({ position: e.target.value })}
           optionValue={OpenPositions}
-          
         />
 
         <MessageField
           label="Message / Cover Letter"
-          enterMessage='Enter Message'
-          value={message}
-          inputValue={(e) => setMessage(e.target.value)}
+          enterMessage="Enter Message"
+          value={formData.message || ""}
+          inputValue={(e) => updateForm({ message: e.target.value })}
         />
+
         <FileDropField
           label="Upload Resume"
-          onFileSelect={(file) => setResume(file)}
+          onFileSelect={(file) => updateForm({ resume: file })}
           error={errors.resume}
         />
 
-        <Button btnType="submit" className="primary-btn" btnText="Submit Application" />
+        <Button
+          btnType="submit"
+          className="primary-btn"
+          btnText="Submit Application"
+        />
       </form>
     </div>
   );

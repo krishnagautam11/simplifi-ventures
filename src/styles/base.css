@@ -10,6 +10,12 @@
     box-sizing: border-box;
 }
 
+.header a.active {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+
 :root {
     --darkBlueColor: #122649;
     --lightBlueColor: #3C73AD;

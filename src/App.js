@@ -1,8 +1,12 @@
-// import './App.css';
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
 import "../src/styles/base.css";
 import "../src/styles/style.css";
+import "react-loading-skeleton/dist/skeleton.css";
+
+
 import { AppProvider } from "./context/AppContext";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/composed-components/Header";
 import { Home } from "./pages/Home";
 import { Team } from "./pages/Team";
@@ -14,28 +18,57 @@ import { Resources } from "./pages/Resources";
 import { Career } from "./pages/Career";
 import { ScrollingAnimation } from "./components/composed-components/ScrollingAnimation";
 import { ScrollToTopButton } from "./components/atomic-components/ScrollToTopBtn";
+import { Loader } from "./components/atomic-components/Loader";
+
+
+// ⭐⭐ Route loader wrapper
+const RouteLoaderWrapper = ({ children }) => {
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // 1.5 sec loader
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  return loading ? <Loader /> : children;
+};
+
 
 function App() {
   ScrollingAnimation(".reveal", 120, false);
+
   return (
-   <AppProvider>
-     <BrowserRouter>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/studio" element={<Studio />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/join" element={<JoinUs />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/career" element={<Career />} />
-        </Routes>
-      </main>
-      <Footer />
-      <ScrollToTopButton />
-    </BrowserRouter>
-   </AppProvider>
+    <AppProvider>
+      <BrowserRouter>
+        <RouteLoaderWrapper>
+
+          <Header />
+
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/studio" element={<Studio />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/join" element={<JoinUs />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/career" element={<Career />} />
+            </Routes>
+          </main>
+
+          <Footer />
+          <ScrollToTopButton />
+
+        </RouteLoaderWrapper>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
+
 export default App;

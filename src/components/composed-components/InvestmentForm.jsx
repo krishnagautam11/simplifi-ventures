@@ -1,23 +1,16 @@
 import { useState } from "react";
+import { useAppContext } from "../../context/AppContext";
 import { InputField } from "../atomic-components/InputField";
-import { Dropdown } from "../atomic-components/Dropdown";
 import { MessageField } from "../atomic-components/MessageField";
 import { Button } from "../atomic-components/Button";
 import { PhoneField } from "../atomic-components/PhoneField";
 import { DropDownCustom } from "../atomic-components/DropDownCustom";
 
 export const InvestmentForm = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [investorType, setInvestorType] = useState("Individual");
-  const [investmentRange, setInvestmentRange] = useState("₹1L – ₹5L");
-  const [message, setMessage] = useState("");
-  const [consent, setConsent] = useState(false);
+  const { formData, updateForm } = useAppContext();
+
   const [submitted, setSubmitted] = useState(false);
-
   const [errors, setErrors] = useState({});
-
 
   const investorTypes = [
     { value: "Individual", label: "Individual" },
@@ -32,50 +25,49 @@ export const InvestmentForm = () => {
     { value: "₹1Cr+", label: "₹1Cr+" },
   ];
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newErrors = {};
-    if (!fullName) newErrors.fullName = "Full name is required.";
-    if (!email) newErrors.email = "Email is required.";
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Enter a valid email.";
-    // if (!phone) newErrors.phone = "Phone number is required.";
-    // else if (!/^[0-9]{10}$/.test(phone)) newErrors.phone = "Enter a valid 10-digit phone number.";
-    if (!phone) newErrors.phone = "Phone number is required.";
+
+    if (!formData.fullName) newErrors.fullName = "Full name is required.";
+    if (!formData.email) newErrors.email = "Email is required.";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Enter a valid email.";
+
+    if (!formData.phone) newErrors.phone = "Phone number is required.";
     else {
-
-      const digitsOnly = phone.replace(/\D/g, "");
+      const digitsOnly = formData.phone.replace(/\D/g, "");
       const lastTenDigits = digitsOnly.slice(-10);
-
       if (lastTenDigits.length !== 10)
         newErrors.phone = "Enter a valid 10-digit phone number.";
     }
-    if (!consent) newErrors.consent = "Please accept the consent.";
 
+    if (!formData.consent) newErrors.consent = "Please accept the consent.";
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0) {
-      return;
-    }
+    if (Object.keys(newErrors).length > 0) return;
 
-    console.log("Full Name:", fullName);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    console.log("Investor Type:", investorType);
-    console.log("Investment Range:", investmentRange);
-    console.log("Message:", message);
-    console.log("Consent Given:", consent);
+    console.log("Full Name:", formData.fullName);
+    console.log("Email:", formData.email);
+    console.log("Phone:", formData.phone);
+    console.log("Investor Type:", formData.investorType);
+    console.log("Investment Range:", formData.investmentRange);
+    console.log("Message:", formData.message);
+    console.log("Consent Given:", formData.consent);
 
     setSubmitted(true);
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setInvestorType("Individual");
-    setInvestmentRange("₹1L – ₹5L");
-    setMessage("");
-    setConsent(false);
+
+    updateForm({
+      fullName: "",
+      email: "",
+      phone: "",
+      investorType: "Individual",
+      investmentRange: "₹1L – ₹5L",
+      message: "",
+      consent: false,
+    });
   };
 
   if (submitted) {
@@ -93,65 +85,62 @@ export const InvestmentForm = () => {
   return (
     <div className="joinus-form">
       <form onSubmit={handleSubmit} className="form-reusable">
+
         <InputField
           label="Full Name *"
           type="text"
-          placeholderText='Enter Full Name'
-          value={fullName}
-          inputValue={(e) => setFullName(e.target.value)}
+          placeholderText="Enter Full Name"
+          value={formData.fullName || ""}
+          inputValue={(e) => updateForm({ fullName: e.target.value })}
           error={errors.fullName}
         />
-
 
         <InputField
           label="Email *"
           type="email"
-          placeholderText='Enter Email '
-          value={email}
-          inputValue={(e) => setEmail(e.target.value)}
+          placeholderText="Enter Email"
+          value={formData.email || ""}
+          inputValue={(e) => updateForm({ email: e.target.value })}
           error={errors.email}
-
         />
-
 
         <PhoneField
           label="Phone *"
-          placeholderText='Enter Phone Number'
-          value={phone}
-          onChange={setPhone}
+          placeholderText="Enter Phone Number"
+          value={formData.phone || ""}
+          onChange={(val) => updateForm({ phone: val })}
           error={errors.phone}
         />
-
 
         <div className="investment-form-dropdown">
           <DropDownCustom
             label="Investor Type *"
-            value={investorType}
-            selectValue={(e) => setInvestorType(e.target.value)}
+            value={formData.investorType || "Individual"}
+            selectValue={(e) => updateForm({ investorType: e.target.value })}
             optionValue={investorTypes}
           />
 
           <DropDownCustom
             label="Investment Range *"
-            value={investmentRange}
-            selectValue={(e) => setInvestmentRange(e.target.value)}
+            value={formData.investmentRange || "₹1L – ₹5L"}
+            selectValue={(e) => updateForm({ investmentRange: e.target.value })}
             optionValue={investmentRanges}
           />
         </div>
 
         <MessageField
           label="Message / Interest"
-          enterMessage='Enter Message'
-          value={message}
-          inputValue={(e) => setMessage(e.target.value)}
+          enterMessage="Enter Message"
+          value={formData.message || ""}
+          inputValue={(e) => updateForm({ message: e.target.value })}
         />
 
         <div className="checkbox-field">
           <input
             type="checkbox"
             id="consent"
-            checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
+            checked={formData.consent || false}
+            onChange={(e) => updateForm({ consent: e.target.checked })}
           />
           <label htmlFor="consent">
             I agree to be contacted regarding investment opportunities.
