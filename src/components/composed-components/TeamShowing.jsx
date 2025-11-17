@@ -52,15 +52,14 @@ export const TeamShowing = () => {
   const [selectedMember, setSelectedMember] = useState(members[0]);
 
   return (
-    <div className='team-cards'>
-      {/* Top profile display */}
+
+    <div className="team-cards flex flex-col items-center gap-10">
       <ProfileDisplay member={selectedMember} />
 
-      {/* Filter out the selected member */}
-      <div className='flex team-card'>
+      <div className="team-card flex flex-wrap justify-center gap-8">
         {members
-          .filter((m) => m.name !== selectedMember.name)
-          .map((m) => (
+          .filter(m => m.name !== selectedMember.name)
+          .map(m => (
             <TeamMember
               key={m.name}
               member={m}
@@ -69,7 +68,25 @@ export const TeamShowing = () => {
             />
           ))}
       </div>
-
     </div>
+
+    // <div className='team-cards'>
+
+    //   <ProfileDisplay member={selectedMember} />
+
+    //   <div className='flex team-card'>
+    //     {members
+    //       .filter((m) => m.name !== selectedMember.name)
+    //       .map((m) => (
+    //         <TeamMember
+    //           key={m.name}
+    //           member={m}
+    //           onSelect={setSelectedMember}
+    //           isActive={m.name === selectedMember.name}
+    //         />
+    //       ))}
+    //   </div>
+
+    // </div>
   );
 };

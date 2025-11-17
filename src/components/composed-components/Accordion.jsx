@@ -2,9 +2,9 @@ import { useState } from 'react';
 import AccordionItem from '../composed-components/AccordionItem'
 
 
-export default function Accordion()  {
+export default function Accordion() {
 
- const [accordions, setAccordion] = useState([
+    const [accordions, setAccordion] = useState([
         {
             key: 1,
             title: 'What do we do?',
@@ -39,9 +39,10 @@ export default function Accordion()  {
 
     return (
         <div>
-           
-            <div className="p-2 m-8 accordion">
-                <h2 className='  '>Frequently Asked Questions(FAQs)</h2>
+
+            <div className="p-2 m-8 accordion flex flex-col gap-4">
+                <h2>Frequently Asked Questions (FAQs)</h2>
+
                 {accordions.map((accordion) => (
                     <AccordionItem
                         key={accordion.key}
@@ -52,6 +53,19 @@ export default function Accordion()  {
                     />
                 ))}
             </div>
+
+            {/* <div className="p-2 m-8 accordion">
+                <h2 className='  '>Frequently Asked Questions(FAQs)</h2>
+                {accordions.map((accordion) => (
+                    <AccordionItem
+                        key={accordion.key}
+                        title={accordion.title}
+                        data={accordion.data}
+                        isOpen={accordion.isOpen}
+                        toggleAccordion={() => toggleAccordion(accordion.key)}
+                    />
+                ))}
+            </div> */}
         </div>
     );
 }

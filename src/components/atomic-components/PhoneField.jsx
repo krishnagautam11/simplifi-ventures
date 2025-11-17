@@ -5,7 +5,7 @@ import "react-phone-input-2/lib/style.css";
 export const PhoneField = ({ label, value, onChange, error }) => {
   const [open, setOpen] = useState(false);
 
- useEffect(() => {
+  useEffect(() => {
     const countryBtn = document.querySelector(".country-btn");
 
     if (!countryBtn) return;
@@ -24,7 +24,7 @@ export const PhoneField = ({ label, value, onChange, error }) => {
     };
     document.addEventListener("click", handleClickOutside);
 
-     return () => {
+    return () => {
       countryBtn.removeEventListener("click", toggleOpen);
       document.removeEventListener("click", handleClickOutside);
     };
@@ -32,16 +32,16 @@ export const PhoneField = ({ label, value, onChange, error }) => {
 
 
   return (
-    <div className="input-fields phone-input-field">
-      <label>{label}</label>
-      <div className="phone-input-wrapper">
+    <div className="input-fields phone-input-field flex flex-col gap-1">
+      <label className="font-medium">{label}</label>
+
+      <div className="phone-input-wrapper relative flex items-center">
         <PhoneInput
-          country={"us"}
+          country="us"
           value={value}
           onChange={onChange}
           enableSearch={false}
           disableSearchIcon={true}
-
           inputProps={{
             name: "phone",
             required: true,
@@ -49,13 +49,38 @@ export const PhoneField = ({ label, value, onChange, error }) => {
           }}
           inputClass="phone-input"
           buttonClass="country-btn"
-          
-
         />
         <span className={`custom-arrow-phone-field ${open ? "open" : ""}`}></span>
       </div>
 
       {error && <p className="error-text">{error}</p>}
     </div>
+
+
+    // <div className="input-fields phone-input-field">
+    //   <label>{label}</label>
+    //   <div className="phone-input-wrapper">
+    //     <PhoneInput
+    //       country={"us"}
+    //       value={value}
+    //       onChange={onChange}
+    //       enableSearch={false}
+    //       disableSearchIcon={true}
+
+    //       inputProps={{
+    //         name: "phone",
+    //         required: true,
+    //         autoFocus: false,
+    //       }}
+    //       inputClass="phone-input"
+    //       buttonClass="country-btn"
+
+
+    //     />
+    //     <span className={`custom-arrow-phone-field ${open ? "open" : ""}`}></span>
+    //   </div>
+
+    //   {error && <p className="error-text">{error}</p>}
+    // </div>
   );
 };

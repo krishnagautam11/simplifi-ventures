@@ -87,60 +87,122 @@ export const CareerForm = () => {
 
 
   return (
-    <div className="career-form">
-      <form className="form-reusable" onSubmit={handleSubmit}>
+     <div className="career-form w-full flex justify-center">
+        <form
+          className="form-reusable w-full grid gap-6"
+          onSubmit={handleSubmit}
+        >
+          <InputField
+            label="Full Name *"
+            type="text"
+            placeholderText="Enter Full Name"
+            value={formData.fullName || ""}
+            inputValue={(e) => updateForm({ fullName: e.target.value })}
+            error={errors.fullName}
+          />
 
-        <InputField
-          label="Full Name *"
-          type="text"
-          placeholderText="Enter Full Name"
-          value={formData.fullName || ""}
-          inputValue={(e) => updateForm({ fullName: e.target.value })}
-          error={errors.fullName}
-        />
+          <InputField
+            label="Email *"
+            type="email"
+            placeholderText="Enter Email"
+            value={formData.email || ""}
+            inputValue={(e) => updateForm({ email: e.target.value })}
+            error={errors.email}
+          />
 
-        <InputField
-          label="Email *"
-          type="email"
-          placeholderText="Enter Email"
-          value={formData.email || ""}
-          inputValue={(e) => updateForm({ email: e.target.value })}
-          error={errors.email}
-        />
+          <PhoneField
+            label="Phone *"
+            value={formData.phone || ""}
+            onChange={(val) => updateForm({ phone: val })}
+            error={errors.phone}
+          />
 
-        <PhoneField
-          label="Phone *"
-          value={formData.phone || ""}
-          onChange={(val) => updateForm({ phone: val })}
-          error={errors.phone}
-        />
+          <DropDownCustom
+            label="Position Applying For *"
+            value={formData.position || "React Native Developer"}
+            selectValue={(e) => updateForm({ position: e.target.value })}
+            optionValue={OpenPositions}
+          />
 
-        <DropDownCustom
-          label="Position Applying For *"
-          value={formData.position || "React Native Developer"}
-          selectValue={(e) => updateForm({ position: e.target.value })}
-          optionValue={OpenPositions}
-        />
+          <MessageField
+            label="Message / Cover Letter"
+            enterMessage="Enter Message"
+            value={formData.message || ""}
+            inputValue={(e) => updateForm({ message: e.target.value })}
+          />
 
-        <MessageField
-          label="Message / Cover Letter"
-          enterMessage="Enter Message"
-          value={formData.message || ""}
-          inputValue={(e) => updateForm({ message: e.target.value })}
-        />
+          <FileDropField
+            label="Upload Resume"
+            onFileSelect={(file) => updateForm({ resume: file })}
+            error={errors.resume}
+          />
 
-        <FileDropField
-          label="Upload Resume"
-          onFileSelect={(file) => updateForm({ resume: file })}
-          error={errors.resume}
-        />
+          <Button
+            btnType="submit"
+            className="primary-btn"
+            btnText="Submit Application"
+          />
+        </form>
+      </div>
 
-        <Button
-          btnType="submit"
-          className="primary-btn"
-          btnText="Submit Application"
-        />
-      </form>
-    </div>
+
+    // <div className="career-form">
+
+     
+
+    //   <form className="form-reusable" onSubmit={handleSubmit}>
+
+    //     <InputField
+    //       label="Full Name *"
+    //       type="text"
+    //       placeholderText="Enter Full Name"
+    //       value={formData.fullName || ""}
+    //       inputValue={(e) => updateForm({ fullName: e.target.value })}
+    //       error={errors.fullName}
+    //     />
+
+    //     <InputField
+    //       label="Email *"
+    //       type="email"
+    //       placeholderText="Enter Email"
+    //       value={formData.email || ""}
+    //       inputValue={(e) => updateForm({ email: e.target.value })}
+    //       error={errors.email}
+    //     />
+
+    //     <PhoneField
+    //       label="Phone *"
+    //       value={formData.phone || ""}
+    //       onChange={(val) => updateForm({ phone: val })}
+    //       error={errors.phone}
+    //     />
+
+    //     <DropDownCustom
+    //       label="Position Applying For *"
+    //       value={formData.position || "React Native Developer"}
+    //       selectValue={(e) => updateForm({ position: e.target.value })}
+    //       optionValue={OpenPositions}
+    //     />
+
+    //     <MessageField
+    //       label="Message / Cover Letter"
+    //       enterMessage="Enter Message"
+    //       value={formData.message || ""}
+    //       inputValue={(e) => updateForm({ message: e.target.value })}
+    //     />
+
+    //     <FileDropField
+    //       label="Upload Resume"
+    //       onFileSelect={(file) => updateForm({ resume: file })}
+    //       error={errors.resume}
+    //     />
+
+    //     <Button
+    //       btnType="submit"
+    //       className="primary-btn"
+    //       btnText="Submit Application"
+    //     />
+    //   </form>
+    // </div>
   );
 };

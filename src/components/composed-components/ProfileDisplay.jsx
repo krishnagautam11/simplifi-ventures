@@ -20,14 +20,26 @@ const ProfileDisplay = ({ member }) => {
   if (!displayedMember) return null;
 
   return (
-    <div className={`member-profile ${isVisible ? 'active' : ''}`}>
-      <div className="member-info">
+
+
+    <div className={`member-profile ${isVisible ? "active" : ""} flex flex-col items-center gap-4`}>
+      <div className="member-info flex flex-col items-center gap-2">
         <img src={displayedMember.image} alt={displayedMember.name} />
         <h3 className="small-p">{displayedMember.name}</h3>
         <p className="subtitle-p">{displayedMember.role}</p>
       </div>
-      <p className="member-description">{displayedMember.description}</p>
+
+      <p className="member-description text-center">{displayedMember.description}</p>
     </div>
+
+    // <div className={`member-profile ${isVisible ? 'active' : ''}`}>
+    //   <div className="member-info">
+    //     <img src={displayedMember.image} alt={displayedMember.name} />
+    //     <h3 className="small-p">{displayedMember.name}</h3>
+    //     <p className="subtitle-p">{displayedMember.role}</p>
+    //   </div>
+    //   <p className="member-description">{displayedMember.description}</p>
+    // </div>
   );
 };
 

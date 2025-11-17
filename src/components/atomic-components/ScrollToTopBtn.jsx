@@ -19,12 +19,29 @@ export const ScrollToTopButton = () => {
   };
 
   return (
+
     <>
       {visible && (
-        <button className="scroll-to-top" onClick={scrollToTop} aria-label="Scroll to top">
+        <button
+          className="
+        scroll-to-top
+        fixed bottom-8 right-8
+        flex items-center justify-center
+      "
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
           <FontAwesomeIcon icon={faArrowUp} size={32} />
         </button>
       )}
     </>
+
+    // <>
+    //   {visible && (
+    //     <button className="scroll-to-top" onClick={scrollToTop} aria-label="Scroll to top">
+    //       <FontAwesomeIcon icon={faArrowUp} size={32} />
+    //     </button>
+    //   )}
+    // </>
   );
 };

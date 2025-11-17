@@ -73,21 +73,22 @@ export const Form = () => {
     }
 
     return (
+
         <>
-            <div className="form-reusable">
+            <div className="form-reusable w-full grid gap-6">
                 <InputField
-                    label='Full Name *'
-                    type='text'
-                    placeholderText='Enter Full Name'
+                    label="Full Name *"
+                    type="text"
+                    placeholderText="Enter Full Name"
                     value={formData.fullName || ""}
                     inputValue={(e) => updateForm({ fullName: e.target.value })}
                     error={errors.fullName}
                 />
 
                 <InputField
-                    label='Email *'
-                    type='email'
-                    placeholderText='Enter Email'
+                    label="Email *"
+                    type="email"
+                    placeholderText="Enter Email"
                     value={formData.email || ""}
                     inputValue={(e) => updateForm({ email: e.target.value })}
                     error={errors.email}
@@ -101,14 +102,14 @@ export const Form = () => {
                 />
 
                 <MessageField
-                    label='Message *'
-                    enterMessage='Enter Message'
+                    label="Message *"
+                    enterMessage="Enter Message"
                     value={formData.message || ""}
                     inputValue={(e) => updateForm({ message: e.target.value })}
                 />
             </div>
 
-            <div className="form-btn">
+            <div className="form-btn flex justify-start mt-4">
                 <Button
                     btnType="submit"
                     className="primary-btn"
@@ -117,5 +118,50 @@ export const Form = () => {
                 />
             </div>
         </>
+
+        // <>
+        //     <div className="form-reusable">
+        //         <InputField
+        //             label='Full Name *'
+        //             type='text'
+        //             placeholderText='Enter Full Name'
+        //             value={formData.fullName || ""}
+        //             inputValue={(e) => updateForm({ fullName: e.target.value })}
+        //             error={errors.fullName}
+        //         />
+
+        //         <InputField
+        //             label='Email *'
+        //             type='email'
+        //             placeholderText='Enter Email'
+        //             value={formData.email || ""}
+        //             inputValue={(e) => updateForm({ email: e.target.value })}
+        //             error={errors.email}
+        //         />
+
+        //         <PhoneField
+        //             label="Phone *"
+        //             value={formData.phone || ""}
+        //             onChange={(val) => updateForm({ phone: val })}
+        //             error={errors.phone}
+        //         />
+
+        //         <MessageField
+        //             label='Message *'
+        //             enterMessage='Enter Message'
+        //             value={formData.message || ""}
+        //             inputValue={(e) => updateForm({ message: e.target.value })}
+        //         />
+        //     </div>
+
+        //     <div className="form-btn">
+        //         <Button
+        //             btnType="submit"
+        //             className="primary-btn"
+        //             btnText="Submit"
+        //             submitForm={handleSubmit}
+        //         />
+        //     </div>
+        // </>
     );
 };

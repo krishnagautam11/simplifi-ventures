@@ -95,9 +95,12 @@ export const InvestmentForm = () => {
   }
 
   return (
-    <div className="joinus-form">
-      <form onSubmit={handleSubmit} className="form-reusable">
 
+    <div className="joinus-form w-full flex justify-center">
+      <form
+        onSubmit={handleSubmit}
+        className="form-reusable w-full grid gap-6"
+      >
         <InputField
           label="Full Name *"
           type="text"
@@ -124,7 +127,7 @@ export const InvestmentForm = () => {
           error={errors.phone}
         />
 
-        <div className="investment-form-dropdown">
+        <div className="investment-form-dropdown grid gap-4 md:grid-cols-2">
           <DropDownCustom
             label="Investor Type *"
             value={formData.investorType || "Individual"}
@@ -147,7 +150,7 @@ export const InvestmentForm = () => {
           inputValue={(e) => updateForm({ message: e.target.value })}
         />
 
-        <div className="checkbox-field">
+        <div className="checkbox-field flex items-start gap-2">
           <input
             type="checkbox"
             id="consent"
@@ -158,10 +161,80 @@ export const InvestmentForm = () => {
             I agree to be contacted regarding investment opportunities.
           </label>
         </div>
+
         {errors.consent && <p className="error-text">{errors.consent}</p>}
 
         <Button btnType="submit" className="primary-btn" btnText="Submit" />
       </form>
     </div>
+
+    // <div className="joinus-form">
+    //   <form onSubmit={handleSubmit} className="form-reusable">
+
+    //     <InputField
+    //       label="Full Name *"
+    //       type="text"
+    //       placeholderText="Enter Full Name"
+    //       value={formData.fullName || ""}
+    //       inputValue={(e) => updateForm({ fullName: e.target.value })}
+    //       error={errors.fullName}
+    //     />
+
+    //     <InputField
+    //       label="Email *"
+    //       type="email"
+    //       placeholderText="Enter Email"
+    //       value={formData.email || ""}
+    //       inputValue={(e) => updateForm({ email: e.target.value })}
+    //       error={errors.email}
+    //     />
+
+    //     <PhoneField
+    //       label="Phone *"
+    //       placeholderText="Enter Phone Number"
+    //       value={formData.phone || ""}
+    //       onChange={(val) => updateForm({ phone: val })}
+    //       error={errors.phone}
+    //     />
+
+    //     <div className="investment-form-dropdown">
+    //       <DropDownCustom
+    //         label="Investor Type *"
+    //         value={formData.investorType || "Individual"}
+    //         selectValue={(e) => updateForm({ investorType: e.target.value })}
+    //         optionValue={investorTypes}
+    //       />
+
+    //       <DropDownCustom
+    //         label="Investment Range *"
+    //         value={formData.investmentRange || "₹1L – ₹5L"}
+    //         selectValue={(e) => updateForm({ investmentRange: e.target.value })}
+    //         optionValue={investmentRanges}
+    //       />
+    //     </div>
+
+    //     <MessageField
+    //       label="Message / Interest"
+    //       enterMessage="Enter Message"
+    //       value={formData.message || ""}
+    //       inputValue={(e) => updateForm({ message: e.target.value })}
+    //     />
+
+    //     <div className="checkbox-field">
+    //       <input
+    //         type="checkbox"
+    //         id="consent"
+    //         checked={formData.consent || false}
+    //         onChange={(e) => updateForm({ consent: e.target.checked })}
+    //       />
+    //       <label htmlFor="consent">
+    //         I agree to be contacted regarding investment opportunities.
+    //       </label>
+    //     </div>
+    //     {errors.consent && <p className="error-text">{errors.consent}</p>}
+
+    //     <Button btnType="submit" className="primary-btn" btnText="Submit" />
+    //   </form>
+    // </div>
   );
 };

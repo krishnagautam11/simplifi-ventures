@@ -134,7 +134,6 @@
 
 /* Home Page */
 
-
 .custom-container {
   margin: 0px 27px 0 25px;
   padding: 30px 0 20px 0;
@@ -200,6 +199,13 @@ h2 {
   margin-top: 0;
 }
 
+.card-email a {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 100%;
+  color: var(--lightBlack);
+}
+
 .marquee-wrapper {
   overflow: hidden;
   white-space: nowrap;
@@ -227,7 +233,8 @@ h2 {
   width: 120px;
   height: auto;
 
-  filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(1413%) hue-rotate(198deg) brightness(94%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(1413%)
+    hue-rotate(198deg) brightness(94%) contrast(96%);
 }
 
 /* CTA Banner*/
@@ -246,29 +253,30 @@ h2 {
 
   z-index: 0;
 
-
   --s: 82px;
   --c1: #b2b2b2;
   --c2: #ffffff;
   --c3: #d9d9d9;
 
   --_g: var(--c3) 0 120deg, #0000 0;
-  background:
-    conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+  background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
     conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
-    conic-gradient(from 60deg at calc(200% / 3),
+    conic-gradient(
+      from 60deg at calc(200% / 3),
       var(--c3) 60deg,
       var(--c2) 0 120deg,
-      #0000 0),
+      #0000 0
+    ),
     conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       var(--c1) calc(100% / 6),
       var(--c2) 0 50%,
       var(--c1) 0 calc(500% / 6),
-      var(--c2) 0);
+      var(--c2) 0
+    );
   background-size: calc(1.732 * var(--s)) var(--s);
   opacity: 0.8;
-
 }
 
 .cta-banner::after {
@@ -280,16 +288,10 @@ h2 {
   z-index: 1;
 }
 
-
-
-
-.cta-banner>* {
+.cta-banner > * {
   position: relative;
   z-index: 2;
 }
-
-
-
 
 .cta-graphic {
   display: none;
@@ -308,12 +310,11 @@ h2 {
   z-index: 2;
   display: flex;
   flex-direction: column;
-
 }
 
 .cta-content::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 95.9%;
   height: 96%;
   background: transparent;
@@ -348,7 +349,6 @@ h2 {
 }
 
 .cta-buttons .primary-btn:hover {
-
   background: #03183f;
   color: var(--white);
 }
@@ -369,7 +369,6 @@ h2 {
 .reveal.from-left,
 .reveal.from-right {
   --dy: 60px;
-
 }
 
 .reveal.in-view {
@@ -534,6 +533,7 @@ h2 {
 .approach-card-text .card-p {
   max-width: 600px;
   margin: 0 auto;
+  line-height: 137%;
 }
 
 .approach-card-text h3 {
@@ -586,20 +586,17 @@ h2 {
 }
 
 .accordion-content {
-
   max-height: 0;
-  /* border: 1px solid var(--gray); */
   overflow: hidden;
   opacity: 0;
-
-  transition: max-height 0.4s ease, opacity 0.4s ease;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  will-change: max-height, opacity;
 }
 
 .accordion-content.open {
   max-height: 1000px;
   opacity: 1;
 }
-
 
 /* .accordion-content {
   max-height: 0;
@@ -621,11 +618,68 @@ h2 {
   transition: all 0.4s ease;
 }
 
-
 /* Resources Page */
 
 .news-section .custom-container {
   margin: 0 128px;
+}
+
+/* Make all swiper cards equal width */
+.swiper-cards {
+  display: flex !important;
+  height: auto !important;
+}
+
+.news-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove forced max width */
+.news-card-description {
+  max-width: 100% !important;
+}
+
+/* This ensures text doesn’t overflow or make card bigger */
+.news-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card-subtext {
+  margin-top: auto; /* pushes read more to bottom */
+}
+
+.news-content > h3 {
+  margin: 50px 0;
+}
+.news-section {
+  overflow: hidden;
+}
+
+.news-section .custom-container {
+  margin: 0 20px;
+  padding: 0;
+}
+.swiper-scrollbar {
+  background: var(--white) !important; /* light bluish background */
+  height: 6px !important;
+  border-radius: 0px !important;
+  width: 80% !important;
+  margin-top: 32px;
+}
+
+/* Scrollbar draggable thumb */
+.swiper-scrollbar-drag {
+  background: var(--lightBlueColor) !important; /* your brand blue */
+  border-radius: 0px !important;
+  width: 100px !important;
+}
+.news-swiper {
+  /* overflow: visible !important; */
+  padding-bottom: 40px;
 }
 
 /* Contact Page */
@@ -656,8 +710,6 @@ iframe {
   height: 300px;
 }
 
-
-
 .contact-details {
   display: flex;
   gap: 20px;
@@ -686,12 +738,6 @@ iframe {
     height: 400px;
 } */
 
-
-
-
-
-
-
 .contact-details p a {
   font-size: 13.5px;
   color: var(--lightGray);
@@ -702,7 +748,6 @@ iframe {
 
 .contact-details p a:hover,
 .contact-details p a:hover svg {
-
   color: var(--white);
 }
 
@@ -794,7 +839,6 @@ iframe {
 }
 
 textarea {
-
   min-height: 130px;
   resize: none;
   overflow: auto;
@@ -812,12 +856,7 @@ textarea {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 20px;
   border: 1px solid var(--gray);
-
 }
-
-
-
-
 
 .contact-form {
   background: white;
@@ -864,7 +903,6 @@ textarea {
   field-sizing: content;
 }
 
-
 .form-reusable .input-fields {
   display: flex;
 
@@ -884,8 +922,6 @@ textarea {
   height: 103px;
   /* field-sizing: content; */
 }
-
-
 
 .primary-btn {
   border-radius: 0;
@@ -910,14 +946,12 @@ input,
 textarea,
 select,
 .drop-area {
-  font-family: 'Nunito Sans';
-  border: 1px solid #C2CFE0;
+  font-family: "Nunito Sans";
+  border: 1px solid #c2cfe0;
   background: white;
   color: var(--black);
   border-radius: 0;
-
 }
-
 
 input::placeholder,
 textarea::placeholder {
@@ -940,7 +974,6 @@ textarea:focus {
 .react-tel-input .form-control {
   border-radius: 0 !important;
   width: 100% !important;
-
 }
 
 .react-tel-input .country-list {
@@ -962,7 +995,6 @@ textarea:focus {
 
 .react-tel-input .country-list .country:hover .dial-code {
   color: white;
-
 }
 
 /* Join Us Page */
@@ -1003,15 +1035,14 @@ li {
   max-width: 450px;
 }
 
-
 /* ProcessCard old */
 
-.processExplain-title h1 {}
+.processExplain-title h1 {
+}
 
 .processExplain-content h2 {
   margin: 30px 0;
   font-size: 27px;
-
 }
 
 .processExplain-card {
@@ -1028,7 +1059,7 @@ li {
 
 .processExplain-card::before {
   position: absolute;
-  content: '';
+  content: "";
   border-left: 2px solid var(--darkBlueColor);
   border-bottom: 2px solid var(--darkBlueColor);
 
@@ -1146,7 +1177,6 @@ iframe {
   flex-wrap: wrap;
 }
 
-
 .joinUs-title .form-subtext {
   color: var(--grayText);
   padding-top: 20px;
@@ -1186,24 +1216,21 @@ iframe {
   width: 100%;
 }
 
-
 .dropdown-wrapper {
   position: relative;
   width: 100%;
   max-width: 100%;
-
 }
 
 .dropdown-label {
   display: block;
   margin-bottom: 8px;
-
 }
 
 .dropdown-selected {
   padding: 10px;
   height: 40px;
-  border: 1px solid #C2CFE0;
+  border: 1px solid #c2cfe0;
   background: var(--white);
   color: var(--darkBlueText);
   cursor: pointer;
@@ -1219,7 +1246,7 @@ iframe {
   left: 0;
   width: 100%;
   /* background: #fff; */
-  border: 1px solid #C2CFE0;
+  border: 1px solid #c2cfe0;
 
   max-height: 160px;
   /* controls dropdown height */
@@ -1257,7 +1284,6 @@ iframe {
   padding: 3px;
   
 } */
-
 
 .phone-input-wrapper {
   position: relative;
@@ -1331,9 +1357,7 @@ iframe {
 }
 
 .react-tel-input .selected-flag {
-
   width: 42px !important;
-
 }
 
 .react-tel-input .selected-flag .flag {
@@ -1345,17 +1369,12 @@ iframe {
 }
 
 .react-tel-input .selected-flag .arrow {
-
-
-
   left: 20px;
-
 }
 
 .react-tel-input .flag-dropdown {
   width: 45px;
 }
-
 
 /* CTA Banner */
 
@@ -1374,8 +1393,6 @@ iframe {
     padding: 8px;
   }
 }
-
-
 
 .form-success h3 {
   color: var(--green);
@@ -1398,7 +1415,6 @@ iframe {
   padding-top: 100px;
   text-align: center;
 }
-
 
 .career-title {
   margin-bottom: 40px;
@@ -1425,7 +1441,6 @@ iframe {
   padding: 20px;
   border: 1px solid var(--gray);
   text-align: left;
-
 }
 
 .career-title .form-subtext {
@@ -1496,7 +1511,6 @@ p {
   text-align: center;
 }
 
-
 /* Loader */
 
 .page-loader {
@@ -1522,11 +1536,12 @@ p {
 }
 
 .loader:before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(10.08px at bottom right, #0000 94%, currentColor) top left,
+  background: radial-gradient(10.08px at bottom right, #0000 94%, currentColor)
+      top left,
     radial-gradient(10.08px at bottom left, #0000 94%, currentColor) top right,
     radial-gradient(10.08px at top right, #0000 94%, currentColor) bottom left,
     radial-gradient(10.08px at top left, #0000 94%, currentColor) bottom right;
@@ -1552,7 +1567,6 @@ p {
   }
 }
 
-
 .map-skeleton {
   width: 100%;
   height: 400px;
@@ -1560,23 +1574,45 @@ p {
   border-radius: 4px;
 }
 
-
 /* Resources Page */
 .news-section {
   background-color: var(--lightWhite);
 }
 
+.news-card {
+  display: flex;
+  flex-direction: column;
+}
 
-.news-card-content{
+.news-card > img {
+  width: 100%;
+}
+
+.news-content .small-p {
+  font-weight: 400;
+}
+
+.news-card-content {
   background-color: var(--white);
   padding: 15px;
 }
 
-
-.news-card-description{
-  color:var(--grayText);
+.news-card-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0 35px 0;
 }
 
+.news-card-description {
+  max-width: 282px;
+  line-height: 125%;
+
+  color: var(--grayText);
+}
+
+.swiper {
+  padding: 0 0 43px 0 !important;
+}
 
 @media (min-width: 320px) and (max-width: 991px) {
   .info-card-img {
@@ -1602,17 +1638,14 @@ p {
   } */
 }
 
-@media (min-width:375px) {
+@media (min-width: 375px) {
   .contact-details p a {
     font-size: 16px;
     color: var(--lightGray);
   }
-
 }
 
 @media (min-width: 425px) {
-
-
   .marquee-content {
     animation: marquee 6s linear infinite;
   }
@@ -1644,7 +1677,6 @@ p {
     font-size: 20px;
     max-width: 319px;
   }
-
 
   /* Contact Page */
   .contact-details-upper p a svg {
@@ -1685,14 +1717,13 @@ p {
 
   /* Join Us Page */
   .career-title .form-subtext {
-
     font-size: 21px;
     max-width: 380px;
-
   }
 }
 
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+}
 
 @media (min-width: 575px) {
   .info-cards h1 {
@@ -1745,7 +1776,6 @@ p {
     font-size: 40px;
     max-width: 350px;
   }
-
 
   .cta-content p {
     font-size: 20px;
@@ -1833,7 +1863,6 @@ p {
   }
 
   @keyframes pulse {
-
     0%,
     100% {
       transform: translate(-50%, -50%) scale(1);
@@ -1898,7 +1927,6 @@ p {
   }
 
   .contact-details-upper {
-
     border-right: 1px solid white;
     padding-right: 25px;
     border-bottom: 0;
@@ -1985,7 +2013,6 @@ p {
 
   /* CTA Banner */
   .cta-content h2 {
-
     max-width: 100%;
   }
 
@@ -2008,13 +2035,21 @@ p {
   .footer-logo {
     border: none;
     padding-bottom: 0;
+    /* width: 34%; */
   }
 
   .footer-links {
     padding-top: 0;
     width: 50%;
+    /* width: 58%; */
     justify-content: space-between;
   }
+
+  /* .footer-links {
+    padding-top: 0;
+    width: 50%;
+    justify-content: space-between;
+  } */
 
   /* Career Page */
 
@@ -2042,6 +2077,11 @@ p {
     padding: 20px 0;
   }
 
+  /* Resouces Page */
+  .news-section .custom-container {
+    margin: 0 0 0 128px;
+    padding: 0;
+  }
 }
 
 @media (min-width: 800px) {
@@ -2061,7 +2101,6 @@ p {
 }
 
 @media (min-width: 991px) {
-
   /* Header */
   .desktop-navbar {
     margin: 43px 40px;
@@ -2115,7 +2154,8 @@ p {
     max-width: 358px;
   }
 
-  .info-card-text {}
+  .info-card-text {
+  }
 
   .info-card-text h1 {
     text-align: left;
@@ -2232,7 +2272,6 @@ p {
     clip-path: polygon(0 0, 100% 0, 64% 100%, 0% 100%);
     /* width: 41%; */
     /* margin-top: 39px; */
-
   }
 
   .info-cards.card-fifth .info-card-text {
@@ -2299,7 +2338,6 @@ p {
     max-width: 295px;
     width: 100%; */
   }
-
 
   /* Team Page */
   .team-card {
@@ -2369,12 +2407,10 @@ p {
   .cta-content p {
     font-size: 25px;
     max-width: 500px;
-
   }
 
   .contactBanner {
     margin-top: -6px;
-
   }
 
   /* .cta-banner {
@@ -2388,7 +2424,6 @@ p {
   /* background: linear-gradient(135deg, var(--darkBlueText), var(--darkBlueColor)); */
 
   /* Graphic Side */
-
 
   .circle-layer {
     position: absolute;
@@ -2457,7 +2492,6 @@ p {
   }
 
   @keyframes pulse {
-
     0%,
     100% {
       transform: translate(-50%, -50%) scale(1);
@@ -2508,7 +2542,6 @@ p {
     /* position: relative; */
   }
 
-
   .contact-details {
     gap: 20px;
     flex-direction: column;
@@ -2522,7 +2555,6 @@ p {
 
   .contact-details p a:hover,
   .contact-details p a:hover svg {
-
     color: var(--white);
   }
 
@@ -2603,7 +2635,6 @@ p {
   }
 
   textarea {
-
     min-height: 130px;
     resize: none;
     overflow: auto;
@@ -2621,9 +2652,7 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 20px;
     border: 1px solid var(--gray);
-
   }
-
 
   .contact-form {
     width: 50%;
@@ -2638,7 +2667,6 @@ p {
     justify-content: space-around;
     align-items: center;
   }
-
 
   .form-reusable .input-fields {
     display: flex;
@@ -2659,8 +2687,6 @@ p {
     height: 103px;
     /* field-sizing: content; */
   }
-
-
 
   .primary-btn {
     border-radius: 0;
@@ -2683,14 +2709,12 @@ p {
 
   input,
   textarea {
-    font-family: 'Nunito Sans';
-    border: 1px solid #C2CFE0;
+    font-family: "Nunito Sans";
+    border: 1px solid #c2cfe0;
     background: white;
     color: var(--black);
     border-radius: 0;
-
   }
-
 
   input::placeholder,
   textarea::placeholder {
@@ -2714,7 +2738,6 @@ p {
     border-radius: 0 !important;
     width: 100% !important;
     height: 40px;
-
   }
 
   .react-tel-input .country-list {
@@ -2736,7 +2759,6 @@ p {
 
   .react-tel-input .country-list .country:hover .dial-code {
     color: white;
-
   }
 
   /* Join Us Page */
@@ -2798,8 +2820,6 @@ p {
     color: var(--white);
   }
 
-
-
   .processExplain-text2 ul {
     padding: 8px 0;
   }
@@ -2825,7 +2845,7 @@ p {
 
   .processExplain2-cards::before {
     position: absolute;
-    content: '';
+    content: "";
     /* background: var(--darkBlueColor); */
     width: 0;
     height: 100%;
@@ -2846,7 +2866,7 @@ p {
 
   .processCardOne1::before {
     position: absolute;
-    content: '';
+    content: "";
     /* background: var(--lightBlueColor); */
     width: 63px;
     height: 0px;
@@ -2861,7 +2881,6 @@ p {
     padding: 20px;
   }
 
-
   .processCardTwo2 {
     text-align: right;
     width: 100%;
@@ -2872,7 +2891,7 @@ p {
 
   .processCardTwo2::before {
     position: absolute;
-    content: '';
+    content: "";
     /* background: var(--lightBlueColor); */
     width: 63px;
     height: 0px;
@@ -2880,7 +2899,6 @@ p {
     top: 5%;
     left: 44%;
   }
-
 
   .processExplain-card2 {
     flex-direction: column;
@@ -2895,15 +2913,12 @@ p {
     object-fit: cover;
   }
 
-
   /* Career Page */
   .career-page-wrapper {
     padding-top: 200px;
-
   }
 
   .career-form {
-
     padding-bottom: 50px;
   }
 
@@ -2916,7 +2931,6 @@ p {
   .joinUs-page-wrapper .form-subtext {
     font-size: 26px;
     max-width: 500px;
-
   }
 
   /* animation of transisiton */
@@ -2951,7 +2965,6 @@ p {
 }
 
 @media (min-width: 1200px) {
-
   /* Header */
   .desktop-navbar {
     margin: 43px 128px;
@@ -3085,9 +3098,6 @@ p {
     max-width: 286px;
   }
 
-
-
-
   /* Cta Banner */
   .cta-banner {
     position: relative;
@@ -3095,7 +3105,6 @@ p {
     overflow: hidden;
     padding: 20px;
   }
-
 
   /* pattern background */
   .cta-banner::before {
@@ -3105,29 +3114,30 @@ p {
 
     z-index: 0;
 
-
     --s: 82px;
     --c1: #b2b2b2;
     --c2: #ffffff;
     --c3: #d9d9d9;
 
     --_g: var(--c3) 0 120deg, #0000 0;
-    background:
-      conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+    background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
       conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
-      conic-gradient(from 60deg at calc(200% / 3),
+      conic-gradient(
+        from 60deg at calc(200% / 3),
         var(--c3) 60deg,
         var(--c2) 0 120deg,
-        #0000 0),
+        #0000 0
+      ),
       conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
-      linear-gradient(90deg,
+      linear-gradient(
+        90deg,
         var(--c1) calc(100% / 6),
         var(--c2) 0 50%,
         var(--c1) 0 calc(500% / 6),
-        var(--c2) 0);
+        var(--c2) 0
+      );
     background-size: calc(1.732 * var(--s)) var(--s);
     opacity: 0.8;
-
   }
 
   .cta-banner::after {
@@ -3139,16 +3149,10 @@ p {
     z-index: 1;
   }
 
-
-
-
-  .cta-banner>* {
+  .cta-banner > * {
     position: relative;
     z-index: 2;
   }
-
-
-
 
   .cta-graphic {
     display: none;
@@ -3163,12 +3167,11 @@ p {
     position: relative;
     gap: 7px;
     z-index: 2;
-
   }
 
   .cta-content::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 98.9%;
     height: 95%;
     background: transparent;
@@ -3202,7 +3205,6 @@ p {
   }
 
   .cta-buttons .primary-btn:hover {
-
     background: #03183f;
     color: var(--white);
   }
@@ -3213,9 +3215,7 @@ p {
 
   .contactBanner {
     margin-top: -6px;
-
   }
-
 
   /* Contact Form */
   .success-wrapper {
@@ -3280,7 +3280,8 @@ p {
 
   /* Process Section */
 
-  .process-wrapper {}
+  .process-wrapper {
+  }
 
   .process-content {
     margin: 50px 128px 87px 128px;
@@ -3294,7 +3295,12 @@ p {
   }
 
   .news-section .custom-container {
-    margin: 0 128px;
+    margin: 0 0 0 128px;
+    padding: 0;
+  }
+
+  .news-content > h3 {
+    margin: 50px 0;
   }
 
   /* .news-swiper{
@@ -3305,18 +3311,40 @@ p {
         width: fit-content !important;
     } */
 
+  .swiper {
+    padding: 0 0 32px 0;
+  }
+
+  .news-swiper {
+    /* overflow: visible !important; */
+    padding-bottom: 40px; /* space for scrollbar */
+  }
+  /* Scrollbar track background */
+  .swiper-scrollbar {
+    background: var(--white) !important; /* light bluish background */
+    height: 6px !important;
+    border-radius: 0px !important;
+    width: 80% !important;
+    margin-top: 32px;
+  }
+
+  /* Scrollbar draggable thumb */
+  .swiper-scrollbar-drag {
+    background: var(--lightBlueColor) !important; /* your brand blue */
+    /* border-radius: 10px !important; */
+    width: 100px !important;
+  }
+
   .swiper-cards {
-    width: 310px !important;
-    height: 480px !important;
+    /* width: 310px !important;
+    height: 480px !important; */
   }
 
-  .mySwiper {
+  /* .mySwiper {
     width: fit-content;
-  }
-
+  } */
 
   /* Contact Page */
-
 
   /* .contact-form {
     padding: 50px;
@@ -3339,7 +3367,6 @@ p {
     } */
 
   /* Join Us Page */
-
 
   .joinUs-details {
     /* gap: 0; */
@@ -3372,7 +3399,7 @@ p {
 
   .processExplain2-cards::before {
     position: absolute;
-    content: '';
+    content: "";
     /* background: var(--darkBlueColor); */
     width: 0;
     height: 100%;
@@ -3393,7 +3420,7 @@ p {
 
   .processCardOne1::before {
     position: absolute;
-    content: '';
+    content: "";
     /* background: var(--lightBlueColor); */
     width: 63px;
     height: 0px;
@@ -3408,7 +3435,6 @@ p {
     padding: 20px;
   }
 
-
   .processCardTwo2 {
     text-align: right;
     width: 100%;
@@ -3419,7 +3445,7 @@ p {
 
   .processCardTwo2::before {
     position: absolute;
-    content: '';
+    content: "";
     /* background: var(--lightBlueColor); */
     width: 63px;
     height: 0px;
@@ -3427,7 +3453,6 @@ p {
     top: 5%;
     left: 44%;
   }
-
 
   .processExplain-card2 {
     flex-direction: column;
@@ -3441,7 +3466,6 @@ p {
     aspect-ratio: 1 / 1;
     object-fit: cover;
   }
-
 
   /* Team Page */
   .team-card {
@@ -3464,10 +3488,9 @@ p {
     max-width: 1200px;
   }
 
-
-
   /* Career Page */
-  .career-page-wrapper {}
+  .career-page-wrapper {
+  }
 
   .career-page-wrapper .form-heading,
   .joinUs-page-wrapper .form-heading {
@@ -3498,7 +3521,6 @@ p {
   .header--scrolled {
     background-color: var(--white);
     color: var(--black);
-
   }
 
   .contact-info {
@@ -3511,8 +3533,6 @@ p {
     /* padding: 20px; */
   }
 
-
-
   .contact-details {
     padding: 30px;
     width: 100%;
@@ -3523,17 +3543,14 @@ p {
   }
 
   .contact-details p a {
-
     font-size: 19px;
     color: var(--lightGray);
   }
 
   .contact-details p a:hover,
   .contact-details p a:hover svg {
-
     color: var(--white);
   }
-
 
   .contact-details-upper {
     display: flex;
@@ -3544,7 +3561,6 @@ p {
     padding-right: 2px;
     border-bottom: 0;
   }
-
 
   .contact-details-below {
     display: flex;
@@ -3592,7 +3608,6 @@ p {
   }
 
   textarea {
-
     min-height: 130px;
     resize: none;
     overflow: auto;
@@ -3610,7 +3625,6 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 20px;
     border: 1px solid var(--gray);
-
   }
 
   .form-reusable {
@@ -3643,14 +3657,12 @@ p {
 
   input,
   textarea {
-    font-family: 'Nunito Sans';
-    border: 1px solid #C2CFE0;
+    font-family: "Nunito Sans";
+    border: 1px solid #c2cfe0;
     background: white;
     color: var(--black);
     border-radius: 0;
-
   }
-
 
   input::placeholder,
   textarea::placeholder {
@@ -3673,7 +3685,6 @@ p {
   .react-tel-input .form-control {
     border-radius: 0 !important;
     width: 100% !important;
-
   }
 
   .react-tel-input .country-list {
@@ -3695,7 +3706,6 @@ p {
 
   .react-tel-input .country-list .country:hover .dial-code {
     color: white;
-
   }
 }
 
@@ -3747,15 +3757,11 @@ p {
     flex: 1;
   }
 
-
-
-
   .info-cards.card-fifth {
     margin: -30px 0 0 0;
   }
 
   .info-cards.card-fifth img {
-
     margin-top: 29px;
   }
 
@@ -3788,7 +3794,8 @@ p {
     margin-top: -6px;
   }
 
-  .studio-page-wrapper .info-card-text {}
+  .studio-page-wrapper .info-card-text {
+  }
 
   /* Join Us Page */
   .career-title .form-subtext,
@@ -3798,8 +3805,7 @@ p {
   }
 }
 
-
-@media (min-width:1550px) {
+@media (min-width: 1550px) {
   .contact-details-upper {
     display: flex;
     flex-direction: column;
