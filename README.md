@@ -88,7 +88,6 @@ npm run eject	Exposes configuration files (irreversible)
 ## 💡 Future Improvements
 If you want, these can be added later:
 Dark mode,
-Admin dashboard for investor analytics,
 API integration with backend
 
 
