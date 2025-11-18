@@ -21,10 +21,6 @@ import { ScrollToTopButton } from "./components/atomic-components/ScrollToTopBtn
 import { Loader } from "./components/atomic-components/Loader";
 // import lax from 'lax.js';
 
-
-
-
-// ⭐⭐ Route loader wrapper
 const RouteLoaderWrapper = ({ children }) => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
@@ -34,7 +30,7 @@ const RouteLoaderWrapper = ({ children }) => {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500); // 1.5 sec loader
+    }, 1500); 
 
     return () => clearTimeout(timer);
   }, [location.pathname]);

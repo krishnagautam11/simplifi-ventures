@@ -32,6 +32,7 @@ export const Resources = () => {
         h2={resourcesInfoCards[2].title}
         p={resourcesInfoCards[2].desc}
         className={resourcesInfoCards[2].className}
+        email={resourcesInfoCards[2].email}
       />
     </main>
   );

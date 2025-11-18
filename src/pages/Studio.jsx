@@ -46,6 +46,7 @@ export const Studio = () => {
           h2={studioFooterCard.title}
           p={studioFooterCard.desc}
           className={studioFooterCard.className}
+          email={studioFooterCard.email}
         />
 
         <Accordion />

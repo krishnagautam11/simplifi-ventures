@@ -1877,7 +1877,7 @@ p {
     }
   }
 
-  /* Joi Us Page */
+  /* Join Us Page */
   .processExplain-card {
     flex-direction: row;
   }
@@ -2879,6 +2879,7 @@ p {
     flex-direction: column;
     width: 44%;
     padding: 20px;
+            border: none;
   }
 
   .processCardTwo2 {
@@ -2905,6 +2906,7 @@ p {
     align-items: flex-end;
     display: flex;
     width: 42%;
+            border: none;
   }
 
   .processExplain2-cards img {

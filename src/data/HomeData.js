@@ -12,9 +12,6 @@ import marqueeImg3 from "../assets/images/paytm1.png";
 import marqueeImg4 from "../assets/images/zepto.png";
 import marqueeImg5 from "../assets/images/razorPay.png";
 
-// ------------------------------------------------------
-// HOME SECTIONS — ALL ORIGINAL TEXT FULLY RESTORED
-// ------------------------------------------------------
 export const homeSections = [
   {
     type: "card",
@@ -47,7 +44,7 @@ export const homeSections = [
       "Our team of engineers work side by side with our portfolio companies to solve key problems so that they can focus on operating.",
   },
 
-  // ⭐ Marquee — exactly after 3rd card
+ 
   {
     type: "marquee",
     marqueeImages: [
@@ -74,7 +71,7 @@ export const homeSections = [
       "Today we have global partnerships with financial institutions to incubate new fintech innovations.",
   },
 
-  // ⭐ CTA — exactly here
+ 
   {
     type: "cta",
     className: "investorBanner",
@@ -105,7 +102,7 @@ export const homeSections = [
     desc:
       "Located in the heart of Silicon Valley, we would love to hear from you. " +
       "Please send us a message using our Contact Us Form or drop us an email at:",
-    email: "learnmore@simplifiventures.com", // ⭐ added field
+    email: "learnmore@simplifiventures.com",
   }
 
   // {

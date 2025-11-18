@@ -41,6 +41,7 @@ export const Team = () => {
           h2={teamInfoCards[2].title}
           p={teamInfoCards[2].desc}
           className={teamInfoCards[2].className}
+          email={teamInfoCards[2].email}       
         />
       </div>
     </main>

@@ -76,9 +76,10 @@ export const studioCTA = {
 export const studioFooterCard = {
   img: infoCardFooter,
   title: 'Contact',
-  desc:
-    'Located in the heart of Silicon Valley, we would love to hear from you. Please send us a message using our Contact Us Form or drop us an email at: learnmore@simplifiventures.com',
-  className: 'card-sixth'
+  desc: "Located in the heart of Silicon Valley, we would love to hear from you. " +
+    "Please send us a message using our Contact Us Form or drop us an email at:",
+  email: "learnmore@simplifiventures.com",
+  className: "card-sixth",
 };
 
 

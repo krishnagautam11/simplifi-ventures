@@ -3,7 +3,7 @@ import { InvestedProjects } from "../components/composed-components/InvestedProj
 import { CTA } from "../components/composed-components/CTA";
 import { ScrollingAnimation } from "../components/composed-components/ScrollingAnimation";
 
-import { homeSections } from "../data/HomeData"; // Your updated data
+import { homeSections } from "../data/HomeData"; 
 
 export const Home = () => {
   ScrollingAnimation(".reveal", 100);
@@ -14,9 +14,7 @@ export const Home = () => {
 
         {homeSections.map((section, index) => {
 
-          // ------------------------------------
-          // 1️⃣ INFO CARDS
-          // ------------------------------------
+          
           if (section.type === "card") {
             return (
               <InfoCards
@@ -25,15 +23,13 @@ export const Home = () => {
                 img4={section.img4}
                 h2={section.title}
                 p={section.desc}
-                email={section.email}        // ⭐ Email support added
+                email={section.email}       
                 className={section.className}
               />
             );
           }
 
-          // ------------------------------------
-          // 2️⃣ MARQUEE
-          // ------------------------------------
+        
           if (section.type === "marquee") {
             return (
               <InvestedProjects
@@ -43,9 +39,7 @@ export const Home = () => {
             );
           }
 
-          // ------------------------------------
-          // 3️⃣ CTA BANNER
-          // ------------------------------------
+         
           if (section.type === "cta") {
             return (
               <CTA
