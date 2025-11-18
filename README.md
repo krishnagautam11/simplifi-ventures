@@ -18,8 +18,7 @@ Simplifi Ventures is an investor-oriented platform that helps fintech startups s
  7. Missing Design Decisions
  8. Available Scripts
  9. Future Improvements
- 10. Contributors
- 11. License
+
 
 
  ## Setup Instructions
@@ -92,8 +91,6 @@ Dark mode,
 Admin dashboard for investor analytics,
 API integration with backend
 
-## Contributors
-- Krishna Gautam
+
   
-## License
-This project is licensed under the MIT .
+
