@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Simplifi Ventures
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simplifi Ventures is an investor-oriented platform that helps fintech startups secure funding and scale their growth. This project includes modern UI components, responsive layouts, and essential pages designed to support investors, founders, and applicants.
 
-## Available Scripts
+## 🚀 Tech Stack
+<p> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="50" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="50" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" width="50" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="50" /> </p>
 
-In the project directory, you can run:
+## 📸 Project Preview
+<img src="https://github.com/user-attachments/assets/40c357ec-518b-4f17-93da-fb56c60b3ca3" width="800" />
 
-### `npm start`
+ ## Table Of Content
+ 1. Project Title
+ 2. Project Description
+ 3. Project Preview
+ 4. Tech Stack
+ 5. Installation
+ 6. Design-to-code Notes
+ 7. Missing Design Decisions
+ 8. Available Scripts
+ 9. Future Improvements
+ 10. Contributors
+ 11. License
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ## Setup Instructions
+1️⃣ Clone the repository -
+git clone <your-repo-url>
+cd simplifi-ventures
 
-### `npm test`
+2️⃣ Install dependencies -
+npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3️⃣ Start development server -
+npm start
 
-### `npm run build`
+4️⃣ Build for production -
+npm run build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5️⃣ Run tests -
+npm test
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎨 Design-to-Code Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+During development, these steps were followed to transform the Figma design into functional UI:
 
-### `npm run eject`
+1. Carefully analyzed Figma to identify missing or unclear components.
+2. Conceptualized the missing elements using logical UX patterns.
+3. Researched UI best practices to refine component structure and aesthetics.
+4. Drafted rough sketches/wireframes to visualize the missing sections.
+5. Implemented components in React using reusable, modular architecture with Tailwind CSS.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧩 Missing Design Decisions (Components I Added & Why)
+✔ 1. Footer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Figma did not include a footer, so I added one to improve navigation, credibility, and website completeness.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+✔ 2. CTA Banner
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To improve conversions and user engagement, a call-to-action banner was added.
 
-## Learn More
+✔ 3. Invested Companies Section
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Because the website is about investing, the Figma lacked a crucial section showcasing previously funded startups.
+I added this with a marquee effect to highlight partner companies dynamically.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+✔ 4. Form Pages
 
-### Code Splitting
+Important but missing in the design:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contact Form
 
-### Analyzing the Bundle Size
+Career / Job Application Form
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Join Us / Investment Request Form
 
-### Making a Progressive Web App
+These pages are necessary for user interaction and business functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+✔ 5. FAQs Section
 
-### Advanced Configuration
+Many users often have the same questions, so this was added to reduce friction and improve clarity.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📚 Available Scripts
+Command	Description
+npm start	Starts the app in development mode
+npm test	Runs the test suite
+npm run build	Builds an optimized production version
+npm run eject	Exposes configuration files (irreversible)
 
-### Deployment
+## 💡 Future Improvements
+If you want, these can be added later:
+Dark mode,
+Admin dashboard for investor analytics,
+API integration with backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors
+- Krishna Gautam
+  
+## License
+This project is licensed under the MIT .
